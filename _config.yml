@@ -20,7 +20,7 @@ timezone: Asia/Shanghai
 
 title: BigBrotherJu # the main title
 
-tagline: BigBrotherJu's blog # it will display as the sub-title
+tagline: BigBrotherJu's Blog # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A place where BigBrotherJu writes his blog.
