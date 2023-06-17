@@ -95,7 +95,7 @@ Draft:
   >
   > Source: http://www.open-std.org/JTC1/SC22/WG14/www/standards.html
 
-## ISO/IEC 9899:2011
+### ISO/IEC 9899:2011
 
 Official standard: https://www.iso.org/standard/57853.html
 
