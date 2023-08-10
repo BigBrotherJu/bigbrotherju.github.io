@@ -28,6 +28,26 @@
 
 - Update theme
 
+  After updating theme, use the two steps above to update gems.
+
+  - Add the template as a remote
+
+    `git remote add template https://github.com/cotes2020/chirpy-starter`
+
+  - Fetch template
+
+    `git fetch template`
+
+  - Locate commit in the template
+
+    `git log template/main --oneline`
+
+  - Put the change introduced a particular commit onto local main
+
+    `git cherry-pick <commit-id>`
+
+    (Submodule commit will be updated as well.)
+
 ## Ruby 101
 
 - Ruby
