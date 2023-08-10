@@ -48,6 +48,14 @@
 
     (Submodule commit will be updated as well.)
 
+  - Update the file `assets/js/dist/post.min.js` with regrad to tocbot
+
+    Search `tocbot.init` in local chirpy gem directory and locate file.
+
+    Copy the file into correct location in blog directory.
+
+    Replace `tocbot.init({` with `tocbot.init({collapseDepth:3`.
+
 ## Ruby 101
 
 - Ruby
@@ -135,3 +143,25 @@
   - `bundle show`
 
   - `bundle show --paths`
+
+## Chirpy Theme
+
+- Chirpy GitHub
+
+  https://github.com/cotes2020/jekyll-theme-chirpy/tree/production
+
+  `tocbot.init` exists in `_javascript/modules/components/toc.js`
+
+- Chirpy Gem
+
+  `_javascript` directory does not exist in the gem directory.
+
+  `toc.js` is corporated into `assets/js/dist/post.min.js`.
+
+- Jekyll blog
+
+  We create a `assets/js/dist/post.min.js` in our blog directory. This file in blog will **override** the file in gem directory.
+
+  Then, we copy the content of `assets/js/dist/post.min.js` in gem directory to `assets/js/dist/post.min.js` in our blog directory.
+
+  Since we want to keep the toc always **expanded**, we replace `tocbot.init({` with `tocbot.init({collapseDepth:3` in `post.min.js`.
