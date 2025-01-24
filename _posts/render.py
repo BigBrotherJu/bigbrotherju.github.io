@@ -10,7 +10,7 @@ def gitHubPost(text, mode, context):
 		payload['context'] = context
 
 	headers = {	'Accept': 'application/vnd.github+json',
-				'Authorization': 'Bearer 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aosipS4',
+				'Authorization': 'Bearer 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4',
 				'X-GitHub-Api-Version': '2022-11-28' }
 
 	r = requests.post('https://api.github.com/markdown', data=simplejson.dumps(payload), headers=headers)
