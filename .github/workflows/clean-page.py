@@ -54,6 +54,11 @@ def clean_html(url, output_path):
                 for link in md_links:
                     original_href = link['href']
                     new_href = original_href[:-3] + '.html'  # 替换 .md 为 .html
+
+                    if '_posts/' in new_href:
+                        posts_index = new_href.find('_posts/')
+                        new_href = new_href[posts_index:]
+
                     link['href'] = new_href
                     print(f"已修改链接: {original_href} → {new_href}")
 
@@ -78,7 +83,7 @@ def clean_html(url, output_path):
             print("已添加 hidden 属性")
             # element.decompose()
 
-        with open(output_path, 'w') as f:
+        with open(output_path, 'w', encoding='utf-8') as f:
             f.write(str(soup))
 
     except Exception as e:
