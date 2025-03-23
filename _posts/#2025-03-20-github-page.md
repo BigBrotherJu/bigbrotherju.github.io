@@ -54,4 +54,4 @@
 
 ## nojekyll
 
-如果选择 deploy from a branch，选择 main branch，并在 folder 中加入文件 .nojekyll，GitHub 自带的 action 还是会运行。
+如果选择 deploy from a branch，选择 main branch，并在 folder 中加入文件 .nojekyll，GitHub 自带的 jekyll action 还是会运行。
