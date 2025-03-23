@@ -1,5 +1,4 @@
 import sys
-import os
 import time
 import requests
 from bs4 import BeautifulSoup
@@ -38,7 +37,30 @@ def clean_html(url, output_path):
         # with open(orig_path, 'w', encoding="utf-8") as f:
         #     f.write(str(soup))
 
-        is_readme = 'readme' in url.lower()
+        # =============== 处理 title ================
+
+        title_element = soup.find('title')
+        if title_element:
+            original_title = title_element.get_text()
+            print(f"\n原始标题: {original_title}")
+
+            # 查找 _posts/ 位置
+            posts_index = original_title.find('_posts/')
+            if posts_index != -1:
+                # 计算截取起始位置（跳过 _posts/ 本身）
+                start_index = posts_index + len('_posts/')
+                remaining_text = original_title[start_index:]
+
+                # 查找空格截止位置
+                space_index = remaining_text.find(' ')
+                new_title = remaining_text[:space_index] if space_index != -1 else remaining_text
+
+                title_element.string = new_title
+                print(f"新标题: {new_title}")
+            else:
+                print("标题中未包含 _posts/ 路径")
+        else:
+            print("警告: 未找到 <title> 元素")
 
         # ================== 处理 article 元素 ==================
         article_element = soup.find('article')
@@ -53,6 +75,7 @@ def clean_html(url, output_path):
 
             parent_clone['style'] = 'padding: 32px'
 
+            is_readme = 'readme' in url.lower()
             if is_readme:
                 print("正在处理 article 内的链接：")
                 md_links = parent_clone.find_all('a', href=lambda x: x and x.endswith('.md'))
@@ -78,6 +101,7 @@ def clean_html(url, output_path):
         else:
             print("\n未找到 article 元素")
 
+        # ======== 处理带 data-turbo-body 属性的元素
         turbo_elements = soup.select('[data-turbo-body]')
         print(f"找到 {len(turbo_elements)} 个带 data-turbo-body 属性的元素")
 
@@ -90,12 +114,14 @@ def clean_html(url, output_path):
             # print("已添加 hidden 属性")
             element.decompose()
 
+        # ========== 处理 footer 元素 ==============
         footer_element = soup.find('footer')
 
         if footer_element is not None:
             print("\n发现 footer 元素")
             footer_element.decompose()
 
+        # ========== 写入文件 =====================
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(str(soup))
 
