@@ -1,12 +1,12 @@
 # GitHub Pages Setting
 
-两种产生页面的方式：
+## 两种产生页面的方式
 
 - Deploy from a branch
 
   选好 branch 和 folder，folder 里面不需要任何 workflow 文件。
 
-  每次这个 folder 里面的变动被 push 以后，GitHub 自带的 action pages build and deployment 会自动运行。
+  每次这个 folder 里面的变动被 push 以后，GitHub 自带的 action pages build and deployment 会自动运行，使用 jekyll 产生页面。
 
   这个 action 的构成如下：
 
@@ -42,7 +42,7 @@
 
     也是要用 actions/checkout、actions/upload-pages-artifact 和 actions/deploy-pages。
 
-两种部署页面的方式：
+## 两种部署页面的方式
 
 - actions/upload-pages-artifact 和 actions/deploy-pages
 
@@ -51,3 +51,7 @@
 - peaceiris/actions-gh-pages
 
   可以把网页源文件 push 到另一个专门存放网页源文件的 branch。
+
+## nojekyll
+
+如果选择 deploy from a branch，选择 main branch，并在 folder 中加入文件 .nojekyll，GitHub 自带的 action 还是会运行。
