@@ -79,9 +79,9 @@ def clean_html(url, output_path):
             print(f"标签名: {element.name}")
             print(f"全部属性: {dict(element.attrs)}")
 
-            element['hidden'] = None
-            print("已添加 hidden 属性")
-            # element.decompose()
+            # element['hidden'] = None
+            # print("已添加 hidden 属性")
+            element.decompose()
 
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(str(soup))
