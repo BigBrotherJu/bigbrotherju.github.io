@@ -38,6 +38,10 @@
 
     https://gohugo.io/host-and-deploy/host-on-github-pages/
 
+  - 自己写
+
+    也是要用 actions/checkout、actions/upload-pages-artifact 和 actions/deploy-pages。
+
 两种部署页面的方式：
 
 - actions/upload-pages-artifact 和 actions/deploy-pages

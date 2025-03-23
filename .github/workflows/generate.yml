@@ -15,7 +15,10 @@ jobs:
         run: |
           FILES=$(find _posts -type f -name "*.md" ! -name "#*"; echo "README.md")
 
-          echo "files=$FILES" >> $GITHUB_OUTPUT
+          echo "files<<EOF" >> $GITHUB_OUTPUT  # 使用 EOF 块处理多行
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
           echo "markdown files:"
           echo "$FILES"
 
