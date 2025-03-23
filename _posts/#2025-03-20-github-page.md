@@ -42,7 +42,13 @@
 
     也是要用 actions/checkout、actions/upload-pages-artifact 和 actions/deploy-pages。
 
+  - 自己写
+
+    或者用 actions/checkout 和 peaceiris/actions-gh-pages。
+
 ## 两种部署页面的方式
+
+最后都要通过 artifact 压缩包的方式部署。
 
 - actions/upload-pages-artifact 和 actions/deploy-pages
 
@@ -50,8 +56,8 @@
 
 - peaceiris/actions-gh-pages
 
-  可以把网页源文件 push 到另一个专门存放网页源文件的 branch。
+  可以把网页源文件 push 到另一个专门存放网页源文件的 branch。但是这个 branch 的内容实际上还是要通过 GitHub 自带的 action 被打包成一个 artifact 压缩包。
 
 ## nojekyll
 
-如果选择 deploy from a branch，选择 main branch，并在 folder 中加入文件 .nojekyll，GitHub 自带的 jekyll action 还是会运行。
+如果选择 deploy from a branch，选择一个 branch，并在 folder 中加入文件 .nojekyll，GitHub 自带的 jekyll action 还是会运行，但是会少了 build with jekyll 这一步。

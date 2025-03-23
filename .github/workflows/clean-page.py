@@ -56,7 +56,7 @@ def clean_html(url, output_path):
                     new_href = original_href[:-3] + '.html'  # 替换 .md 为 .html
 
                     if '_posts/' in new_href:
-                        posts_index = new_href.find('_posts/')
+                        posts_index = new_href.find('/_posts')
                         new_href = new_href[posts_index:]
 
                     link['href'] = new_href

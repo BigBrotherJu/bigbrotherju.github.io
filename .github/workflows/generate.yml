@@ -1,7 +1,10 @@
 name: Generate HTML for every Markdown
 
 on:
-  workflow_dispatch
+  push:
+    branches: [ main ]
+
+  workflow_dispatch:
 
 jobs:
   generate-pages:
