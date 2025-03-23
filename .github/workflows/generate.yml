@@ -36,7 +36,9 @@ jobs:
         run: |
           mkdir -p output
 
-          for file in ${{ steps.get_files.outputs.files }}; do
+          IFS=$'\n' files=(${{ steps.get_files.outputs.files }})
+
+          for file in "${files[@]}"; do
             echo "Processing $file ..."
             GITHUB_URL="https://github.com/${{ github.repository }}/blob/main/$file"
 
