@@ -54,7 +54,7 @@ jobs:
             # 带重试机制的调用 (最多3次尝试)
             max_retries=2
             attempt=0
-            until python .github/scripts/clean-page.py "$GITHUB_URL" "$OUTPUT_PATH"; do
+            until python .github/workflows/clean-page.py "$GITHUB_URL" "$OUTPUT_PATH"; do
               attempt=$((attempt + 1))
               if [ $attempt -gt $max_retries ]; then
                 echo "Failed after $max_retries attempts"
