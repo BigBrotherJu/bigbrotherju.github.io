@@ -1,6 +1,6 @@
 # GitHub Pages Setting
 
-两种方式：
+两种产生页面的方式：
 
 - Deploy from a branch
 
@@ -34,4 +34,16 @@
 
   - Hugo 例子
 
+    也是用到了 actions/checkout、actions/upload-pages-artifact 和 actions/deploy-pages。
+
     https://gohugo.io/host-and-deploy/host-on-github-pages/
+
+两种部署页面的方式：
+
+- actions/upload-pages-artifact 和 actions/deploy-pages
+
+  页面打包成一个 artifact 压缩包，里面包含了所有网页源文件。不用额外的分支来存储网页源文件。
+
+- peaceiris/actions-gh-pages
+
+  可以把网页源文件 push 到另一个专门存放网页源文件的 branch。
