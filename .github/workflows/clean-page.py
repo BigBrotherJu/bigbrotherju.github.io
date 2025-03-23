@@ -26,10 +26,16 @@ def fetch_with_retry(url, max_retries=2, retry_delay=3):
 def clean_html(url, output_path):
     try:
         response = fetch_with_retry(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
 
         # base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
         # orig_path = f"{base_path}_orig.html"
+        # with open(orig_path, 'w') as f:
+        #     f.write(str(soup))
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
+        # orig_path = f"{base_path}_souporig.html"
         # with open(orig_path, 'w') as f:
         #     f.write(str(soup))
 
