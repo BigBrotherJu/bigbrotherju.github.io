@@ -29,14 +29,13 @@ def clean_html(url, output_path):
 
         # base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
         # orig_path = f"{base_path}_orig.html"
-        # with open(orig_path, 'w') as f:
-        #     f.write(str(soup))
+        # with open(orig_path, 'w', encoding="utf-8") as f:
+        #     f.write(response.text)
 
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
         # orig_path = f"{base_path}_souporig.html"
-        # with open(orig_path, 'w') as f:
+        # with open(orig_path, 'w', encoding="utf-8") as f:
         #     f.write(str(soup))
 
         is_readme = 'readme' in url.lower()
@@ -50,11 +49,13 @@ def clean_html(url, output_path):
             print(f"ID 属性: {article_element.get('id', '无')}")
             print(f"class 属性: {article_element.get('class', '无')}")
             print(f"子元素数量: {len(article_element.find_all())}")
-            article_clone = deepcopy(article_element.parent)
+            parent_clone = deepcopy(article_element.parent)
+
+            parent_clone['style'] = 'padding: 32px'
 
             if is_readme:
                 print("正在处理 article 内的链接：")
-                md_links = article_clone.find_all('a', href=lambda x: x and x.endswith('.md'))
+                md_links = parent_clone.find_all('a', href=lambda x: x and x.endswith('.md'))
                 print(f"找到 {len(md_links)} 个 .md 结尾的链接")
 
                 for link in md_links:
@@ -70,8 +71,8 @@ def clean_html(url, output_path):
 
             body = soup.body
             if body:
-                body.insert(0, article_clone)
-                print("\n已插入 article 副本到 body 开头")
+                body.insert(0, parent_clone)
+                print("\n已插入 article 父元素副本到 body 开头")
             else:
                 print("\n警告: 未找到 body 元素")
         else:
@@ -92,7 +93,7 @@ def clean_html(url, output_path):
         footer_element = soup.find('footer')
 
         if footer_element is not None:
-            print("\n发现 footer 元素:")
+            print("\n发现 footer 元素")
             footer_element.decompose()
 
         with open(output_path, 'w', encoding='utf-8') as f:
