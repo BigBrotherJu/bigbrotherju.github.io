@@ -37,30 +37,29 @@ def clean_html(url, output_path):
         # with open(orig_path, 'w', encoding="utf-8") as f:
         #     f.write(str(soup))
 
-        # =============== 处理 title ================
-
+        # ================== 新增：处理 title 元素 ==================
         title_element = soup.find('title')
         if title_element:
             original_title = title_element.get_text()
-            print(f"\n原始标题: {original_title}")
+            if '.md' in original_title:
+                # 定位 .md 位置
+                md_index = original_title.find('.md')
 
-            # 查找 _posts/ 位置
-            posts_index = original_title.find('_posts/')
-            if posts_index != -1:
-                # 计算截取起始位置（跳过 _posts/ 本身）
-                start_index = posts_index + len('_posts/')
-                remaining_text = original_title[start_index:]
+                # 向前查找最近的 /
+                slash_index = original_title.rfind('/', 0, md_index)
 
-                # 查找空格截止位置
-                space_index = remaining_text.find(' ')
-                new_title = remaining_text[:space_index] if space_index != -1 else remaining_text
+                if slash_index != -1:
+                    new_title = original_title[slash_index+1:md_index]
+                else:
+                    # 如果没有 / 则取开头到 .md 的部分
+                    new_title = original_title[:md_index]
 
                 title_element.string = new_title
-                print(f"新标题: {new_title}")
+                print(f"\n标题更新: [ {original_title} ] → [ {new_title} ]")
             else:
-                print("标题中未包含 _posts/ 路径")
+                print("\n标题中未包含 .md，无需修改")
         else:
-            print("警告: 未找到 <title> 元素")
+            print("\n警告: 未找到 title 元素")
 
         # ================== 处理 article 元素 ==================
         article_element = soup.find('article')
