@@ -1,4 +1,4 @@
-name: Generate Clean Markdown Pages
+name: Update Markdown Pages
 
 on:
   push:
@@ -38,8 +38,15 @@ jobs:
           for file in ${{ steps.changed_files.outputs.files }}; do
             echo "Processing $file ..."
             GITHUB_URL="https://github.com/${{ github.repository }}/blob/main/$file"
-            OUTPUT_PATH="output/${file%.md}.html"
-            mkdir -p $(dirname $OUTPUT_PATH)
+
+            file_base=$(basename "$file" .md)
+
+            if [ "$file_base" = "README" ]; then
+              OUTPUT_PATH="output/index.html"
+            else
+              OUTPUT_PATH="output/${file%.md}.html"
+              mkdir -p $(dirname $OUTPUT_PATH)
+            fi
 
             # 带重试机制的调用 (最多3次尝试)
             max_retries=2

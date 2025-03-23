@@ -33,6 +33,8 @@ def clean_html(url, output_path):
         # with open(orig_path, 'w') as f:
         #     f.write(str(soup))
 
+        is_readme = 'readme' in url.lower()
+
         # ================== 处理 article 元素 ==================
         article_element = soup.find('article')
 
@@ -42,8 +44,19 @@ def clean_html(url, output_path):
             print(f"ID 属性: {article_element.get('id', '无')}")
             print(f"class 属性: {article_element.get('class', '无')}")
             print(f"子元素数量: {len(article_element.find_all())}")
-
             article_clone = deepcopy(article_element.parent)
+
+            if is_readme:
+                print("正在处理 article 内的链接：")
+                md_links = article_clone.find_all('a', href=lambda x: x and x.endswith('.md'))
+                print(f"找到 {len(md_links)} 个 .md 结尾的链接")
+
+                for link in md_links:
+                    original_href = link['href']
+                    new_href = original_href[:-3] + '.html'  # 替换 .md 为 .html
+                    link['href'] = new_href
+                    print(f"已修改链接: {original_href} → {new_href}")
+
             body = soup.body
             if body:
                 body.insert(0, article_clone)
