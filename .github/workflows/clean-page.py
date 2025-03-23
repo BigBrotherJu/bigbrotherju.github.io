@@ -83,6 +83,12 @@ def clean_html(url, output_path):
             # print("已添加 hidden 属性")
             element.decompose()
 
+        footer_element = soup.find('footer')
+
+        if footer_element is not None:
+            print("\n发现 footer 元素:")
+            footer_element.decompose()
+
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(str(soup))
 
