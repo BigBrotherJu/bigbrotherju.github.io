@@ -91,6 +91,28 @@ def clean_html(url, output_path):
                     link['href'] = new_href
                     print(f"已修改链接: {original_href} → {new_href}")
 
+            else:
+                # 非 README 页面的处理逻辑（新增部分）
+                print("正在处理非 README 页面的链接和图片：")
+
+                # 处理所有 <a> 标签
+                target_links = parent_clone.find_all('a', href=lambda x: x and '/BigBrotherJu/bigbrotherju.github.io' in x)
+                print(f"找到 {len(target_links)} 个需要处理的链接")
+                for link in target_links:
+                    original_href = link['href']
+                    new_href = f"https://github.com{original_href}"
+                    link['href'] = new_href
+                    print(f"链接更新: {original_href} → {new_href}")
+
+                # 处理所有 <img> 标签
+                target_images = parent_clone.find_all('img', src=lambda x: x and '/BigBrotherJu/bigbrotherju.github.io' in x)
+                print(f"找到 {len(target_images)} 个需要处理的图片")
+                for img in target_images:
+                    original_src = img['src']
+                    new_src = f"https://github.com{original_src}"
+                    img['src'] = new_src
+                    print(f"图片更新: {original_src} → {new_src}")
+
             body = soup.body
             if body:
                 body.insert(0, parent_clone)
