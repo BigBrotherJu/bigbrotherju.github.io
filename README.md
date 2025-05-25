@@ -4,7 +4,7 @@
 
 Placeholder
 
-## My articles
+## My Posts
 
 - [C Standards](_posts/2023-06-14-c-standards.md)
 - [Number Systems](_posts/2023-08-13-number-systems.md)

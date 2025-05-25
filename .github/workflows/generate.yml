@@ -18,7 +18,7 @@ jobs:
       - name: Get every Markdown files
         id: get_files
         run: |
-          FILES=$(find _posts -type f -name "*.md" ! -name "#*"; echo "README.md")
+          FILES=$(find . -type f -name "*.md" ! -name "#*" | sed 's|^\./||')
 
           echo "files<<EOF" >> $GITHUB_OUTPUT  # 使用 EOF 块处理多行
           echo "$FILES" >> $GITHUB_OUTPUT
