@@ -70,6 +70,16 @@ jobs:
             done
           done
 
+      - name: Copy archive folder
+        run: |
+          if [ -d "archive" ]; then
+            echo "Copying archive folder to output/archive"
+            mkdir -p output/archive
+            cp -r archive/* output/archive/
+          else
+            echo "Archive folder not found, skipping"
+          fi
+
       - name: Deploy to branch
         if: steps.get_files.outputs.files != ''
         uses: peaceiris/actions-gh-pages@v4
@@ -77,5 +87,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
           publish_branch: pages
-          keep_files: true
+          keep_files: false
           force_orphan: false
