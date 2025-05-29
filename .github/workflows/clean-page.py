@@ -1,12 +1,14 @@
 import sys
 import time
 import requests
+import os
+import argparse
 from bs4 import BeautifulSoup
 from copy import deepcopy
 
 def fetch_with_retry(url, max_retries=2, retry_delay=3):
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0',
         'Accept': 'text/html'
     }
 
@@ -22,14 +24,15 @@ def fetch_with_retry(url, max_retries=2, retry_delay=3):
             else:
                 raise Exception(f"Failed after {max_retries + 1} attempts: {str(e)}")
 
-def clean_html(url, output_path):
+def clean_html(url, output_path, save_orig):
     try:
         response = fetch_with_retry(url)
 
-        # base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
-        # orig_path = f"{base_path}_orig.html"
-        # with open(orig_path, 'w', encoding="utf-8") as f:
-        #     f.write(response.text)
+        if save_orig:
+            base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
+            orig_path = f"{base_path}_orig.html"
+            with open(orig_path, 'w', encoding="utf-8") as f:
+                f.write(response.text)
 
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -40,7 +43,7 @@ def clean_html(url, output_path):
         # ================== 处理 title 元素 ==================
         title_element = soup.find('title')
         if title_element:
-            print("\n发现 title 元素")
+            print("正在处理 title 元素")
             original_title = title_element.get_text()
             if '.md' in original_title:
                 # 定位 .md 位置
@@ -56,17 +59,17 @@ def clean_html(url, output_path):
                     new_title = original_title[:md_index]
 
                 title_element.string = new_title
-                print(f"\n标题更新: [ {original_title} ] → [ {new_title} ]")
+                print(f"标题更新: [ {original_title} ] → [ {new_title} ]\n")
             else:
-                print("\n标题中未包含 .md，无需修改")
+                print("标题中未包含 .md，无需修改\n")
         else:
-            print("\n警告: 未找到 title 元素")
+            print("警告: 未找到 title 元素\n")
 
         # ================== 处理 article 元素 ==================
         article_element = soup.find('article')
 
         if article_element is not None:
-            print("\n发现 article 元素:")
+            print("发现 article 元素:")
             print(f"标签类型: {article_element.name}")
             print(f"ID 属性: {article_element.get('id', '无')}")
             print(f"class 属性: {article_element.get('class', '无')}")
@@ -117,20 +120,20 @@ def clean_html(url, output_path):
             body = soup.body
             if body:
                 body.insert(0, parent_clone)
-                print("\n已插入 article 父元素副本到 body 开头")
+                print("已插入 article 父元素副本到 body 开头\n")
             else:
-                print("\n警告: 未找到 body 元素")
+                print("警告: 未找到 body 元素\n")
         else:
-            print("\n未找到 article 元素")
+            print("未找到 article 元素\n")
 
         # ======== 删除带 data-turbo-body 属性的元素
         turbo_elements = soup.select('[data-turbo-body]')
         print(f"找到 {len(turbo_elements)} 个带 data-turbo-body 属性的元素")
 
         for idx, element in enumerate(turbo_elements, 1):
-            print(f"\n正在删除第 {idx} 个 turbo-body 元素:")
+            print(f"正在删除第 {idx} 个 turbo-body 元素:")
             print(f"标签名: {element.name}")
-            print(f"全部属性: {dict(element.attrs)}")
+            print(f"全部属性: {dict(element.attrs)}\n")
 
             # element['hidden'] = None
             # print("已添加 hidden 属性")
@@ -140,7 +143,7 @@ def clean_html(url, output_path):
         footer_element = soup.find('footer')
 
         if footer_element is not None:
-            print("\n正在删除 footer 元素")
+            print("正在删除 footer 元素\n")
             footer_element.decompose()
 
         # ========== 写入文件 =====================
@@ -152,8 +155,11 @@ def clean_html(url, output_path):
         sys.exit(1)  # 非零退出码触发 Actions 重试
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python clean_page.py <github_url> <output_path>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description='Clean HTML page from GitHub')
+    parser.add_argument('url', help='GitHub URL to process')
+    parser.add_argument('output_path', help='Output file path')
+    parser.add_argument('--orig', action='store_true', help='Save original HTML file')
 
-    clean_html(sys.argv[1], sys.argv[2])
+    args = parser.parse_args()
+
+    clean_html(args.url, args.output_path, args.orig)
