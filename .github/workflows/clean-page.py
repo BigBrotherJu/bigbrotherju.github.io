@@ -1,6 +1,6 @@
 import sys
 import time
-import requests
+from requests_html import HTMLSession
 import os
 import argparse
 from bs4 import BeautifulSoup
@@ -12,17 +12,23 @@ def fetch_with_retry(url, max_retries=2, retry_delay=3):
         'Accept': 'text/html'
     }
 
+    session = HTMLSession()
+
     for attempt in range(max_retries + 1):
         try:
-            response = requests.get(url, headers=headers, timeout=10)
+            response = session.get(url, headers=headers, timeout=10)
             response.raise_for_status()
+            response.html.render()  # Render JavaScript
             return response
-        except (requests.exceptions.RequestException, requests.exceptions.HTTPError) as e:
+        except Exception as e:
             if attempt < max_retries:
                 print(f"Attempt {attempt + 1} failed: {str(e)}. Retrying in {retry_delay}s...")
                 time.sleep(retry_delay)
             else:
                 raise Exception(f"Failed after {max_retries + 1} attempts: {str(e)}")
+        finally:
+            if attempt == max_retries:
+                session.close()
 
 def clean_html(url, output_path, save_orig):
     try:
@@ -32,9 +38,9 @@ def clean_html(url, output_path, save_orig):
             base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
             orig_path = f"{base_path}_orig.html"
             with open(orig_path, 'w', encoding="utf-8") as f:
-                f.write(response.text)
+                f.write(response.html.html)
 
-        soup = BeautifulSoup(response.text, 'html.parser')
+        soup = BeautifulSoup(response.html.html, 'html.parser')
 
         # orig_path = f"{base_path}_souporig.html"
         # with open(orig_path, 'w', encoding="utf-8") as f:
@@ -45,7 +51,7 @@ def clean_html(url, output_path, save_orig):
         if title_element:
             print("正在处理 title 元素")
             original_title = title_element.get_text()
-            if '.md' in original_title:
+            if 'BigBrotherJu/bigbrotherju.github.io' in original_title and '.md' in original_title:
                 # 定位 .md 位置
                 md_index = original_title.find('.md')
 
@@ -59,13 +65,14 @@ def clean_html(url, output_path, save_orig):
                     new_title = original_title[:md_index]
 
                 title_element.string = new_title
-                print(f"标题更新: [ {original_title} ] → [ {new_title} ]\n")
+                print(f"title 更新: [ {original_title} ] → [ {new_title} ]")
             else:
-                print("标题中未包含 .md，无需修改\n")
+                print("title 中未包含 .md 和 'BigBrotherJu/bigbrotherju.github.io'，无需修改")
         else:
-            print("警告: 未找到 title 元素\n")
+            print("警告: 未找到 title 元素")
 
         # ================== 处理 article 元素 ==================
+        print()
         article_element = soup.find('article')
 
         if article_element is not None:
@@ -97,7 +104,7 @@ def clean_html(url, output_path, save_orig):
                     print(f"已修改链接: {original_href} → {new_href}")
 
             else:
-                print("正在处理非 README 页面的链接和图片：")
+                print("正在处理非 README 页面的链接和图片链接：")
 
                 # 处理所有 <a> 标签
                 target_links = parent_clone.find_all('a', href=lambda x: x and '/BigBrotherJu/bigbrotherju.github.io' in x)
@@ -117,34 +124,40 @@ def clean_html(url, output_path, save_orig):
                     img['src'] = new_src
                     print(f"图片更新: {original_src} → {new_src}")
 
+            print()
+
             body = soup.body
             if body:
                 body.insert(0, parent_clone)
-                print("已插入 article 父元素副本到 body 开头\n")
+                print("已插入 article 父元素副本到 body 开头")
             else:
-                print("警告: 未找到 body 元素\n")
+                print("警告: 未找到 body 元素")
         else:
-            print("未找到 article 元素\n")
+            print("未找到 article 元素")
 
         # ======== 删除带 data-turbo-body 属性的元素
+        print()
         turbo_elements = soup.select('[data-turbo-body]')
         print(f"找到 {len(turbo_elements)} 个带 data-turbo-body 属性的元素")
 
         for idx, element in enumerate(turbo_elements, 1):
             print(f"正在删除第 {idx} 个 turbo-body 元素:")
             print(f"标签名: {element.name}")
-            print(f"全部属性: {dict(element.attrs)}\n")
+            print(f"全部属性: {dict(element.attrs)}")
 
             # element['hidden'] = None
             # print("已添加 hidden 属性")
             element.decompose()
 
         # ========== 删除 footer 元素 ==============
+        print()
         footer_element = soup.find('footer')
 
         if footer_element is not None:
-            print("正在删除 footer 元素\n")
+            print("正在删除 footer 元素")
             footer_element.decompose()
+        else:
+            print("未找到 footer 元素，跳过删除")
 
         # ========== 写入文件 =====================
         with open(output_path, 'w', encoding='utf-8') as f:
