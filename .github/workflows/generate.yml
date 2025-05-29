@@ -44,7 +44,7 @@ jobs:
           IFS=$'\n' files=(${{ steps.get_files.outputs.files }})
 
           for file in "${files[@]}"; do
-            echo -e "Processing $file-------------------------------------\n"
+            echo -e "\n-------------------------Processing $file-------------------------------------\n"
             GITHUB_URL="https://github.com/${{ github.repository }}/blob/main/$file"
 
             file_base=$(basename "$file" .md)
