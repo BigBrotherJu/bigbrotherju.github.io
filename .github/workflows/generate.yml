@@ -34,7 +34,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install requests beautifulsoup4
+          python -m pip install requests beautifulsoup4 requests_html lxml_html_clean
 
       - name: Process Markdown files
         if: steps.get_files.outputs.files != ''
