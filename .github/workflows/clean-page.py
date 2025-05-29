@@ -37,9 +37,10 @@ def clean_html(url, output_path):
         # with open(orig_path, 'w', encoding="utf-8") as f:
         #     f.write(str(soup))
 
-        # ================== 新增：处理 title 元素 ==================
+        # ================== 处理 title 元素 ==================
         title_element = soup.find('title')
         if title_element:
+            print("\n发现 title 元素")
             original_title = title_element.get_text()
             if '.md' in original_title:
                 # 定位 .md 位置
@@ -76,7 +77,7 @@ def clean_html(url, output_path):
 
             is_readme = 'readme' in url.lower()
             if is_readme:
-                print("正在处理 article 内的链接：")
+                print("正在处理 README 中的链接：")
                 md_links = parent_clone.find_all('a', href=lambda x: x and x.endswith('.md'))
                 print(f"找到 {len(md_links)} 个 .md 结尾的链接")
 
@@ -84,15 +85,15 @@ def clean_html(url, output_path):
                     original_href = link['href']
                     new_href = original_href[:-3] + '.html'  # 替换 .md 为 .html
 
-                    if '_posts/' in new_href:
-                        posts_index = new_href.find('/_posts')
-                        new_href = new_href[posts_index:]
+                    if 'bigbrotherju.github.io/blob/main/' in new_href:
+                        prefix = 'bigbrotherju.github.io/blob/main/'
+                        start_index = new_href.find(prefix) + len(prefix)
+                        new_href = new_href[start_index:]
 
                     link['href'] = new_href
                     print(f"已修改链接: {original_href} → {new_href}")
 
             else:
-                # 非 README 页面的处理逻辑（新增部分）
                 print("正在处理非 README 页面的链接和图片：")
 
                 # 处理所有 <a> 标签
@@ -122,12 +123,12 @@ def clean_html(url, output_path):
         else:
             print("\n未找到 article 元素")
 
-        # ======== 处理带 data-turbo-body 属性的元素
+        # ======== 删除带 data-turbo-body 属性的元素
         turbo_elements = soup.select('[data-turbo-body]')
         print(f"找到 {len(turbo_elements)} 个带 data-turbo-body 属性的元素")
 
         for idx, element in enumerate(turbo_elements, 1):
-            print(f"\n正在处理第 {idx} 个 turbo-body 元素:")
+            print(f"\n正在删除第 {idx} 个 turbo-body 元素:")
             print(f"标签名: {element.name}")
             print(f"全部属性: {dict(element.attrs)}")
 
@@ -135,11 +136,11 @@ def clean_html(url, output_path):
             # print("已添加 hidden 属性")
             element.decompose()
 
-        # ========== 处理 footer 元素 ==============
+        # ========== 删除 footer 元素 ==============
         footer_element = soup.find('footer')
 
         if footer_element is not None:
-            print("\n发现 footer 元素")
+            print("\n正在删除 footer 元素")
             footer_element.decompose()
 
         # ========== 写入文件 =====================
