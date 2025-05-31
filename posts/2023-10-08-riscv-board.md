@@ -1,6 +1,6 @@
 ---
 title: RISC-V Board
-date: 2023-12-10 20:30:00 +0800
+date: 2025-05-31 20:30:00 +0800
 categories: [Embedded Systems]
 tags: [embedded systems, risc-v]
 ---
@@ -11,101 +11,69 @@ RISC-V 作为一种新颖的指令集，近年来在工业界开始逐渐流行�
 
 针对一个 SOC，不同的厂商可能会推出不同的开发板。所以，本文大致按时间顺序从新到旧列出 SOC，并将使用同一 SOC 的开发板列在一起。
 
-## 平头哥 TH1520 四核平头哥 C910
+以下的 SOC 中，算能和迭代时空正在努力向 Linux 上游提交 patch，详细见：
 
-https://www.t-head.cn/product/yeying
+https://github.com/spacemit-com/linux/wiki
 
-- Milk-V Meles
+https://github.com/sophgo/linux/wiki
 
-  http://milkv.io/zh/meles
+| CPU | 备注 | SOC | 备注 | 开发板 | 备注 |
+| --- | --- | --- | ---  | ---   | --- |
+| [SiFive P550][P550] | 3 发射乱序 13 级流水线 | ESWIN EIC7700X | 4 核 P550 | [Milk-V Megrez][megrez] | |
+| SiFive P550 | 3 发射乱序 13 级流水线 | ESWIN EIC7700X | 4 核 P550 | [SiFive HiFive Premier P550][sf-p550-board] | |
+| [迭代时空 X60][X60] | 2 发射顺序 8 级流水线 | [迭代时空 K1][K1] | 8 核 CPU | [Milk-V Jupiter][jupiter] |  |
+| 迭代时空 X60 | 2 发射顺序 8 级流水线 | 迭代时空 K1 | 8 核 CPU | [香蕉派 F3][bpi-f3] |  |
+| 迭代时空 X60 | 2 发射顺序 8 级流水线 | 迭代时空 K1 | 8 核 CPU | [矽速科技 LicheePi 3A][licheepi-3a] |  |
+| [达摩院玄铁 C920][C920] | 多发射乱序 12 级流水线 | [算能 SG2042][SG2042] | 64 核 C920 | [Milk-V Pioneer][pioneer] |  |
+| [达摩院玄铁 C910][C910] | 3 发射乱序 12 级流水线 | 平头哥 曳影 1520 | 4 核 C910，SOC 没有产品页面 | [Milk-V Meles][meles] |  |
+| 达摩院玄铁 C910 | 3 发射乱序 12 级流水线 | 平头哥 曳影 1520 | 4 核 C910 | [矽速科技 LicheePi 4A][licheepi-4a] |  |
+| [达摩院玄铁 C906][C906] | 顺序 5 级流水线 | [算能 晶视 CV1800B][CV1800B] | 双核 C906，无缓存一致性  | [Milk-V Duo][duo] |  |
+| 达摩院玄铁 C906 | 顺序 5 级流水线 | [算能 SG2002][SG200x] | 双核 C906，无缓存一致性；ARM Cortex-A53 | [Milk-V Duo 256M][duo] | 内存 256 MB |
+| 达摩院玄铁 C906 | 顺序 5 级流水线 | 算能 SG2002 | 双核 C906，无缓存一致性；ARM Cortex-A53 | [矽速科技 LicheeRV Nano][licheerv-nano] | 内存 256 MB |
+| 达摩院玄铁 C906 | 顺序 5 级流水线 | [算能 SG2000][SG200x] | 双核 C906，无缓存一致性；ARM Cortex-A53 | [Milk-V Duo S][duo] | 内存 512 MB |
+| 达摩院玄铁 C906 | 顺序 5 级流水线 | [全志 D1-H][D1H] | 单核 C906 | [全志 D1-H 哪吒开发板][nezha] | |
+| 达摩院玄铁 C906 | 顺序 5 级流水线 | 全志 D1-H | 单核 C906 | [东山派 哪吒 STU][dongshan-nezha] | 有绿色、蓝色、红色 |
+| 达摩院玄铁 C906 | 顺序 5 级流水线 | 全志 D1-H | 单核 C906 | [矽速科技 LicheePi RV Dock][licheerv-dock] | |
+| 达摩院玄铁 C906 | 顺序 5 级流水线 | [全志 D1s][D1s] | 单核 C906 | [全志 D1s 哪吒开发板][nezha-d1s] | |
+| 达摩院玄铁 C906 | 顺序 5 级流水线 | 全志 D1s | 单核 C906 | [东山派 D1s][dongshan-d1s] | |
+| [SiFive U74][U74]   | 2 发射顺序 8 级流水线 | [赛昉科技 昉·惊鸿 7110][sf-soc] | 4 核 U74 | [Milk-V Mars][mars] | |
+| SiFive U74 | 2 发射顺序 8 级流水线 | 赛昉科技 昉·惊鸿 7110 | 4 核 U74 | [Pine64 STAR64][star64] |  |
+| SiFive U74 | 2 发射顺序 8 级流水线 | 赛昉科技 昉·惊鸿 7110 | 4 核 U74 | [赛昉 昉·星光 2][sf-board] |  |
+| SiFive U74 | 2 发射顺序 8 级流水线 | [赛昉科技 昉·惊鸿 7100][sf-soc] | 2 核 U74 | [赛昉 昉·星光][sf-board] |  |
 
-- Sipeed LicheePi 4A
+[X60]: https://www.spacemit.com/spacemit-x60-core/
+[P550]: https://www.sifive.com/cores/performance-p500
+[U74]: https://www.sifive.com/cores/essential-7
+[C920]: https://www.xrvm.cn/product/xuantie/C920
+[C910]: https://www.xrvm.cn/product/xuantie/C910
+[C906]: https://www.xrvm.cn/product/xuantie/C906
 
-  https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/1_intro.html
+[sf-soc]: https://www.starfivetech.com/site/soc
+[K1]: https://www.spacemit.com/key-stone-k1/
+[CV1800B]: https://www.sophgo.com/sophon-u/product/introduce/cv180xb.html
+[SG200x]: https://www.sophgo.com/sophon-u/product/introduce/sg200x.html
+[SG2042]: https://www.sophgo.com/sophon-u/product/introduce/sg2042.html
+[D1H]: https://www.aw-ol.com/chips/1
+[D1s]: https://www.aw-ol.com/chips/5
 
-## 算能 CV1800B 双核平头哥 C906
-
-https://www.sophgo.com/product/introduce/cv180xB.html
-
-- Milk-V Duo
-
-  http://milkv.io/zh/duo
-
-## 算能 SG2042 64 核平头哥 C920
-
-https://www.sophgo.com/product/introduce/sg2042.html
-
-- Milk-V Pioneer
-
-  http://milkv.io/zh/pioneer
-
-## Starfive JH7110 四核 Sifive U74
-
-https://www.starfivetech.com/site/soc
-
-- Starfive VisionFive 2
-
-  https://www.starfivetech.com/site/boards
-
-- Milk-V Mars
-
-  http://milkv.io/zh/mars
-
-- Milk-V Mars CM
-
-  http://milkv.io/zh/mars-cm
-
-- 飞凌嵌入式 FET7110-C 核心板
-
-  https://www.forlinx.com/product/jh7110-166.html
-
-- Pine64 Star64
-
-  https://pine64.com/product-category/star64/
-
-## Starfive JH7100 双核 Sifive U74
-
-https://www.starfivetech.com/site/soc
-
-- Starfive VisionFive 1
-
-  https://www.starfivetech.com/site/boards
-
-## 全志 D1-H 单核平头哥 C906
-
-https://www.aw-ol.com/chips/1
-
-- 全志 哪吒开发板
-
-  https://d1.docs.aw-ol.com/d1_dev/
-
-- Sipeed LicheePI RV
-
-  https://wiki.sipeed.com/hardware/zh/lichee/RV/RV.html
-
-- Sipeed LicheePI RV Dock
-
-  https://wiki.sipeed.com/hardware/zh/lichee/RV/Dock.html
-
-- 百问科技 东山派-哪吒 STU（有蓝色和绿色）
-
-  https://www.100ask.net/hard/DongshanPI-NezhaSTU_Introduce
-
-- 芒果派 芒果派-MQ Pro
-
-  https://mangopi.org/mqpro
-
-## 全志 D1s 单核平头哥 C906
-
-https://www.aw-ol.com/chips/5
-
-- 全志 D1s 哪吒开发板
-
-  https://d1s.docs.aw-ol.com/hard/hard_1board/
-
-- 百问科技 东山派-D1s（有大的和小的）
-
-  https://www.100ask.net/hard/DongshanPI-D1s_Introduce
+[dongshan-d1s]: https://dongshanpi.com/DongshanPI-D1s/01-BoardIntroduction/
+[dongshan-nezha]: https://dongshanpi.com/DongshanNezhaSTU/01-BoardIntroduction/
+[nezha]: https://d1.docs.aw-ol.com/d1_dev/
+[nezha-d1s]: https://d1s.docs.aw-ol.com/hard/hard_1board/
+[licheepi-4a]: https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/1_intro.html
+[licheepi-3a]: https://wiki.sipeed.com/hardware/zh/lichee/K1/lpi3a/1_intro.html
+[licheerv-dock]: https://wiki.sipeed.com/hardware/zh/lichee/RV/Dock.html
+[licheerv-nano]: https://wiki.sipeed.com/hardware/zh/lichee/RV_Nano/1_intro.html
+[sf-p550-board]: https://www.sifive.com/boards/hifive-premier-p550
+[bpi-f3]: https://www.banana-pi.org.cn/zh-banana-pi-sbcs/175.html
+[star64]: https://pine64.com/product-category/star64/
+[sf-board]: https://www.starfivetech.com/site/boards
+[duo]:https://milkv.io/zh/duo
+[pioneer]: https://milkv.io/zh/pioneer
+[mars]: https://milkv.io/zh/mars
+[meles]: https://milkv.io/zh/meles
+[jupiter]: https://milkv.io/zh/jupiter
+[megrez]: https://milkv.io/zh/megrez
 
 ## 嘉楠 勘智 K510 双核不知名 CPU
 
