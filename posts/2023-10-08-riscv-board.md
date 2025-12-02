@@ -17,16 +17,20 @@ https://github.com/spacemit-com/linux/wiki
 
 https://github.com/sophgo/linux/wiki
 
+## 汇总表格
+
 | CPU | 备注 | SOC | 备注 | 开发板 | 备注 |
 | --- | --- | --- | ---  | ---   | --- |
 | [SiFive P550][P550] | 3 发射乱序 13 级流水线 | ESWIN EIC7700X | 4 核 P550 | [Milk-V Megrez][megrez] | |
 | SiFive P550 | 3 发射乱序 13 级流水线 | ESWIN EIC7700X | 4 核 P550 | [SiFive HiFive Premier P550][sf-p550-board] | |
+| SiFive P550 | 3 发射乱序 13 级流水线 | ESWIN EIC7700X | 4 核 P550 | [Pine64 STARPro64][starpro64] | |
 | [迭代时空 X60][X60] | 2 发射顺序 8 级流水线 | [迭代时空 K1][K1] | 8 核 CPU | [Milk-V Jupiter][jupiter] |  |
 | 迭代时空 X60 | 2 发射顺序 8 级流水线 | 迭代时空 K1 | 8 核 CPU | [香蕉派 F3][bpi-f3] |  |
 | 迭代时空 X60 | 2 发射顺序 8 级流水线 | 迭代时空 K1 | 8 核 CPU | [矽速科技 LicheePi 3A][licheepi-3a] |  |
 | [达摩院玄铁 C920][C920] | 多发射乱序 12 级流水线 | [算能 SG2042][SG2042] | 64 核 C920 | [Milk-V Pioneer][pioneer] |  |
 | [达摩院玄铁 C910][C910] | 3 发射乱序 12 级流水线 | 平头哥 曳影 1520 | 4 核 C910，SOC 没有产品页面 | [Milk-V Meles][meles] |  |
 | 达摩院玄铁 C910 | 3 发射乱序 12 级流水线 | 平头哥 曳影 1520 | 4 核 C910 | [矽速科技 LicheePi 4A][licheepi-4a] |  |
+| 达摩院玄铁 C910 | 3 发射乱序 12 级流水线 | 平头哥 曳影 1520 | 4 核 C910 | [BeagleV-Ahead][beaglev-ahead] | |
 | [达摩院玄铁 C906][C906] | 顺序 5 级流水线 | [算能 晶视 CV1800B][CV1800B] | 双核 C906，无缓存一致性  | [Milk-V Duo][duo] |  |
 | 达摩院玄铁 C906 | 顺序 5 级流水线 | [算能 SG2002][SG200x] | 双核 C906，无缓存一致性；ARM Cortex-A53 | [Milk-V Duo 256M][duo] | 内存 256 MB |
 | 达摩院玄铁 C906 | 顺序 5 级流水线 | 算能 SG2002 | 双核 C906，无缓存一致性；ARM Cortex-A53 | [矽速科技 LicheeRV Nano][licheerv-nano] | 内存 256 MB |
@@ -74,6 +78,79 @@ https://github.com/sophgo/linux/wiki
 [meles]: https://milkv.io/zh/meles
 [jupiter]: https://milkv.io/zh/jupiter
 [megrez]: https://milkv.io/zh/megrez
+[beaglev-ahead]: https://www.beagleboard.org/boards/beaglev-ahead
+[starpro64]: https://pine64.com/product/starpro64-32gb-single-board-computer/
+
+## 开源情况
+
+Fedora by Fedora-V Force 基本所有板子都支持。
+
+- ESWIN EIC7700X
+
+  - Milk-V Megrez
+
+    https://milkv.io/zh/docs/megrez/getting-started/resources
+
+    - Debian/RockOS
+
+      https://github.com/milkv-megrez
+
+      https://github.com/orgs/rockos-riscv/repositories?type=all
+
+      https://rockos-riscv.github.io/rockos-docs/
+
+      不清楚完整 build 流程，只有二进制。
+
+    - Fedora by Fedora-V Force
+
+  - SiFive HiFive Premier P550
+
+    16G 399 USD，32G 499 USD 太贵了。国内也有卖，这个可以。
+
+    https://forums.sifive.com/t/how-to-compile-and-install-kernel/6836
+
+    https://github.com/sifiveinc/riscv-linux/commits/rel/kernel/hifive-premier-p550
+
+    https://github.com/sifiveinc/hifive-premier-p550-ubuntu/releases
+
+    可以用官方提供的 ubuntu，只需要把内核换了就可以。
+
+  - Pine64 STARPro64
+
+    只能跑 RockOS。
+
+- 迭代时空 K1
+
+  https://bianbu.spacemit.com/en/development/perf
+
+  https://bianbu-linux.spacemit.com/source
+
+  - MUSE Pi Pro
+  - MUSE Card
+
+- 平头哥 曳影 1520
+
+  RevyOS 支持下面的三个设备。
+
+  https://github.com/revyos
+
+  https://docs.revyos.dev/
+
+  - Milk-V Meles
+
+  - 矽速科技 LicheePi 4A
+
+    矽速科技还有自己的镜像
+
+  - Beagle-Ahead
+
+    他自己的 SDK 完全开源。
+
+- 算能 SG2042
+
+  - Milk-V Pioneer
+
+    貌似可以直接跑 upstream Linux。
 
 ## 嘉楠 勘智 K510 双核不知名 CPU
 
