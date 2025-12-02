@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html class="js-focus-visible" data-a11y-animated-images="system" data-a11y-link-underlines="true" data-color-mode="auto" data-dark-theme="dark" data-js-focus-visible="" data-light-theme="light" data-turbo-loaded="" lang="en"><head><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 2147483647;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+<meta charset="utf-8"/>
+<link href="https://github.githubassets.com" rel="dns-prefetch"/>
+<link href="https://avatars.githubusercontent.com" rel="dns-prefetch"/>
+<link href="https://github-cloud.s3.amazonaws.com" rel="dns-prefetch"/>
+<link href="https://user-images.githubusercontent.com/" rel="dns-prefetch"/>
+<link crossorigin="" href="https://github.githubassets.com" rel="preconnect"/>
+<link href="https://avatars.githubusercontent.com" rel="preconnect"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/light-8e973f836952.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" href="https://github.githubassets.com/assets/light_high_contrast-34b642d57214.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" href="https://github.githubassets.com/assets/dark-4bce7af39e21.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" href="https://github.githubassets.com/assets/dark_high_contrast-ad512d3e2f3b.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="light" data-href="https://github.githubassets.com/assets/light-8e973f836952.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="light_high_contrast" data-href="https://github.githubassets.com/assets/light_high_contrast-34b642d57214.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="light_colorblind" data-href="https://github.githubassets.com/assets/light_colorblind-54be93e666a7.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="light_colorblind_high_contrast" data-href="https://github.githubassets.com/assets/light_colorblind_high_contrast-8ae7edf5489c.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="light_tritanopia" data-href="https://github.githubassets.com/assets/light_tritanopia-84d50df427c0.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="light_tritanopia_high_contrast" data-href="https://github.githubassets.com/assets/light_tritanopia_high_contrast-a80873375146.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="dark" data-href="https://github.githubassets.com/assets/dark-4bce7af39e21.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="dark_high_contrast" data-href="https://github.githubassets.com/assets/dark_high_contrast-ad512d3e2f3b.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="dark_colorblind" data-href="https://github.githubassets.com/assets/dark_colorblind-d152d6cd6879.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="dark_colorblind_high_contrast" data-href="https://github.githubassets.com/assets/dark_colorblind_high_contrast-fa4060c1a9da.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="dark_tritanopia" data-href="https://github.githubassets.com/assets/dark_tritanopia-d7bad0fb00bb.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="dark_tritanopia_high_contrast" data-href="https://github.githubassets.com/assets/dark_tritanopia_high_contrast-4a0107c0f60c.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="dark_dimmed" data-href="https://github.githubassets.com/assets/dark_dimmed-045e6b6ac094.css" media="all" rel="stylesheet"/><link crossorigin="anonymous" data-color-theme="dark_dimmed_high_contrast" data-href="https://github.githubassets.com/assets/dark_dimmed_high_contrast-5de537db5e79.css" media="all" rel="stylesheet"/>
+<style type="text/css">
+    :root {
+      --tab-size-preference: 4;
+    }
+
+    pre, code {
+      tab-size: var(--tab-size-preference);
+    }
+  </style>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/primer-primitives-c37d781e2da5.css" media="all" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/primer-efa08b71f947.css" media="all" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/global-6dcb16809e76.css" media="all" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/github-f86c648606b5.css" media="all" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/repository-5d735668c600.css" media="all" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/code-9c9b8dc61e74.css" media="all" rel="stylesheet"/>
+<script id="client-env" type="application/json">{"locale":"en","featureFlags":["a11y_status_checks_ruleset","actions_custom_images_public_preview_visibility","actions_custom_images_storage_billing_ui_visibility","actions_enable_snapshot_keyword","actions_image_version_event","alternate_user_config_repo","api_insights_show_missing_data_banner","arianotify_comprehensive_migration","arianotify_partial_migration","client_version_header","codespaces_prebuild_region_target_update","contentful_lp_footnotes","copilot_agent_cli_public_preview","copilot_agent_task_list_v2","copilot_agent_tasks_btn_code_nav","copilot_agent_tasks_btn_code_view","copilot_agent_tasks_btn_code_view_lines","copilot_agent_tasks_btn_repo","copilot_api_agentic_issue_marshal_yaml","copilot_api_draft_issue_reference_with_project_id","copilot_api_draft_issues_with_dependencies","copilot_api_github_draft_update_issue_skill","copilot_chat_agents_empty_state","copilot_chat_attach_multiple_images","copilot_chat_file_redirect","copilot_chat_input_commands","copilot_chat_opening_thread_switch","copilot_chat_reduce_quota_checks","copilot_chat_search_bar_redirect","copilot_chat_selection_attachments","copilot_chat_vision_in_claude","copilot_chat_vision_preview_gate","copilot_coding_agent_task_response","copilot_custom_copilots","copilot_custom_copilots_feature_preview","copilot_duplicate_thread","copilot_extensions_hide_in_dotcom_chat","copilot_extensions_removal_on_marketplace","copilot_features_raycast_logo","copilot_file_block_ref_matching","copilot_ftp_hyperspace_upgrade_prompt","copilot_immersive_generate_thread_name_async","copilot_immersive_issues_readonly_viewer","copilot_immersive_issues_show_relationships","copilot_immersive_job_result_preview","copilot_immersive_structured_model_picker","copilot_immersive_task_hyperlinking","copilot_immersive_task_within_chat_thread","copilot_org_policy_page_focus_mode","copilot_security_alert_assignee_options","copilot_share_active_subthread","copilot_spaces_as_attachments","copilot_spaces_code_view","copilot_spaces_ga","copilot_spaces_individual_policies_ga","copilot_spaces_public_access_to_user_owned_spaces","copilot_spaces_read_access_to_user_owned_spaces","copilot_spaces_report_abuse","copilot_spark_empty_state","copilot_spark_loading_webgl","copilot_spark_progressive_error_handling","copilot_spark_use_billing_headers","copilot_stable_conversation_view","copilot_swe_agent_progress_commands","copilot_swe_agent_use_subagents","copilot_workbench_agent_seed_tool","copilot_workbench_agent_user_edit_awareness","copilot_workbench_cache","copilot_workbench_preview_analytics","copilot_workbench_use_single_prompt","dashboard_universe_2025_feedback_dialog","data_router_force_refetch_on_navigation","direct_to_salesforce","disable_turbo_visit","dom_node_counts","dotcom_chat_client_side_skills","enterprise_ai_controls","failbot_report_error_react_apps_on_page","fetch_graphql_improved_error_serialization","ghost_pilot_confidence_truncation_25","ghost_pilot_confidence_truncation_40","global_search_multi_orgs","hyperspace_2025_logged_out_batch_1","hyperspace_nudges_universe25","hyperspace_nudges_universe25_post_event","initial_per_page_pagination_updates","issue_fields_report_usage","issues_expanded_file_types","issues_lazy_load_comment_box_suggestions","issues_react_bots_timeline_pagination","issues_react_prohibit_title_fallback","issues_report_sidebar_interactions","issues_sticky_sidebar","issues_title_flex_header_fix","item_picker_assignee_tsq_migration","item_picker_project_tsq_migration","kb_sunset","lifecycle_label_name_updates","link_contact_sales_swp_marketo","marketing_pages_search_explore_provider","mcp_registry_install","mcp_registry_oss_v0_1_api","memex_default_issue_create_repository","memex_grouped_by_edit_route","memex_mwl_filter_field_delimiter","mission_control_use_body_html","new_traffic_page_banner","open_agent_session_in_vscode_insiders","open_agent_session_in_vscode_stable","primer_react_segmented_control_tooltip","projects_assignee_max_limit","react_fetch_graphql_ignore_expected_errors","record_sso_banner_metrics","repos_insights_remove_new_url","ruleset_deletion_confirmation","sample_network_conn_type","scheduled_reminders_updated_limits","site_features_copilot_universe","site_homepage_collaborate_video","site_homepage_contentful","site_homepage_eyebrow_banner","site_homepage_universe_animations","site_msbuild_webgl_hero","spark_fix_rename","spark_force_push_after_checkout","spark_improve_image_upload","spark_kv_encocoded_keys","spark_show_data_access_on_publish","spark_sync_repository_after_iteration","spark_use_agent_status","viewscreen_sandbox","webp_support","wiki_a11y_compliant_sidebar","workbench_store_readonly"],"copilotApiOverrideUrl":"https://api.githubcopilot.com"}</script>
+<script crossorigin="anonymous" src="https://github.githubassets.com/assets/high-contrast-cookie-1a011967750c.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/wp-runtime-9d0568c32bfb.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/913-ca2305638c53.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/6488-de87864e6818.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/environment-122ed792f7a3.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/11683-aa3d1ebe6648.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/43784-4652ae97a661.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/4712-809eac2badf7.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/81028-5b8c5e07a4fa.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/74911-6a311b93ee8e.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/91853-b5d2e5602241.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/78143-31968346cf4c.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/52430-c46e2de36eb2.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/github-elements-5b3e77949adb.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/element-registry-fa070ee9a768.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/28546-ee41c9313871.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/17688-a9e16fb5ed13.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/2869-a4ba8f17edb3.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/70191-5122bf27bf3e.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/7332-5ea4ccf72018.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/3561-d56ebea34f95.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/19037-69d630e73af8.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/51519-b4d929bb1e46.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/67310-00ed42590310.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/96384-750ef5263abe.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/19718-676a65610616.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/behaviors-c9e610c5aa64.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/48011-1f20a5c80dd7.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/notifications-global-eb21f5b0029d.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/31615-236504c8966f.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/code-menu-67717e88b7e6.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/primer-react-e4ebdadc89a4.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/react-lib-760965ba27bb.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/react-core-021efa96a7a2.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/octicons-react-a215e6ee021a.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/12979-6037a19d779b.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/48775-3cc79d2cd30e.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/42892-341e79a04903.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/23832-db66abd83e08.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/99418-9d4961969e0d.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/33915-05ba9b3edc31.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/96537-8e29101f7d81.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/51220-ec5733320b36.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/32219-236f5281aec8.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/59579-2ea999aac712.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/62029-a6360a734229.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/25407-c730eb15ec58.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/40771-82ad16a5cc1d.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/66990-bcc3e84258a5.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/29665-96a2ad6dd82d.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/6623-ff0ff52cb37f.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/19976-d9a685a90a0d.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/3774-6fb5a6174da6.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/18406-1107abf79753.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/36584-61e8176018bd.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/29806-7c403c1af2af.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/react-code-view-348d2d8d00d3.js" type="application/javascript"></script>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/primer-react.fbf61c683a537e8f92d5.module.css" media="all" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/react-code-view.5fabe269aba9949ea13c.module.css" media="all" rel="stylesheet"/>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/25873-19b3275e0432.js" type="application/javascript"></script>
+<script crossorigin="anonymous" defer="defer" src="https://github.githubassets.com/assets/notifications-subscriptions-menu-28d0ba308e99.js" type="application/javascript"></script>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/primer-react.fbf61c683a537e8f92d5.module.css" media="all" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/notifications-subscriptions-menu.933100a30c03fd4e8ae4.module.css" media="all" rel="stylesheet"/>
+<title>2025-08-31-markdown-syntax-hl</title>
+<meta content="/:user_id/:repository/blob/*name(/*path)" data-turbo-transient="" name="route-pattern"/>
+<meta content="blob" data-turbo-transient="" name="route-controller"/>
+<meta content="show" data-turbo-transient="" name="route-action"/>
+<meta content="v2:df18aeda-e061-c152-f50d-c3e57017fa6b" name="fetch-nonce"/>
+<meta content="f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb" name="current-catalog-service-hash"/>
+<meta content="F018:C9864:63FDD39:65EF344:692EDE9E" data-pjax-transient="true" name="request-id"/><meta content="6b916224b3d3ff0425032250d9e915f4ba70bf187bde4bd2cdeeb7be1c75d763" data-pjax-transient="true" name="html-safe-nonce"/><meta content="eyJyZWZlcnJlciI6IiIsInJlcXVlc3RfaWQiOiJGMDE4OkM5ODY0OjYzRkREMzk6NjVFRjM0NDo2OTJFREU5RSIsInZpc2l0b3JfaWQiOiI1NjI0NzEwNDg0MjM0MDAyMDc4IiwicmVnaW9uX2VkZ2UiOiJzZWEiLCJyZWdpb25fcmVuZGVyIjoic2VhIn0=" data-pjax-transient="true" name="visitor-payload"/><meta content="cb317c4faf18ce8912638a53fea7e183f70d6c4609a603469279bb68512ac303" data-pjax-transient="true" name="visitor-hmac"/>
+<meta content="repository:952181622" data-turbo-transient="" name="hovercard-subject-tag"/>
+<meta content="repository,source-code,file-tree,copilot" data-turbo-transient="true" name="github-keyboard-shortcuts"/>
+<meta data-turbo-transient="" name="selected-link" value="repo_source"/>
+<link href="https://github.githubassets.com/" rel="assets"/>
+<meta content="Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I" name="google-site-verification"/>
+<meta content="https://collector.github.com/github/collect" name="octolytics-url"/>
+<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-turbo-transient="true" name="analytics-location"/>
+<meta content="" name="user-login"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="Contribute to BigBrotherJu/bigbrotherju.github.io development by creating an account on GitHub." name="description"/>
+<link href="/opensearch.xml" rel="search" title="GitHub" type="application/opensearchdescription+xml"/>
+<link href="https://github.com/fluidicon.png" rel="fluid-icon" title="GitHub"/>
+<meta content="1401488693436528" property="fb:app_id"/>
+<meta content="app-id=1477376905, app-argument=https://github.com/BigBrotherJu/bigbrotherju.github.io/blob/main/posts/2025-08-31-markdown-syntax-hl.md" name="apple-itunes-app"/>
+<meta content="https://opengraph.githubassets.com/0fa5278d310eef9da9b5c10ff1316012b6eb1b2f9f35945904835371411cf2db/BigBrotherJu/bigbrotherju.github.io" name="twitter:image"/><meta content="@github" name="twitter:site"/><meta content="summary_large_image" name="twitter:card"/><meta content="bigbrotherju.github.io/posts/2025-08-31-markdown-syntax-hl.md at main · BigBrotherJu/bigbrotherju.github.io" name="twitter:title"/><meta content="Contribute to BigBrotherJu/bigbrotherju.github.io development by creating an account on GitHub." name="twitter:description"/>
+<meta content="https://opengraph.githubassets.com/0fa5278d310eef9da9b5c10ff1316012b6eb1b2f9f35945904835371411cf2db/BigBrotherJu/bigbrotherju.github.io" property="og:image"/><meta content="Contribute to BigBrotherJu/bigbrotherju.github.io development by creating an account on GitHub." property="og:image:alt"/><meta content="1200" property="og:image:width"/><meta content="600" property="og:image:height"/><meta content="GitHub" property="og:site_name"/><meta content="object" property="og:type"/><meta content="bigbrotherju.github.io/posts/2025-08-31-markdown-syntax-hl.md at main · BigBrotherJu/bigbrotherju.github.io" property="og:title"/><meta content="https://github.com/BigBrotherJu/bigbrotherju.github.io/blob/main/posts/2025-08-31-markdown-syntax-hl.md" property="og:url"/><meta content="Contribute to BigBrotherJu/bigbrotherju.github.io development by creating an account on GitHub." property="og:description"/>
+<meta content="github.com" name="hostname"/>
+<meta content="github.com" name="expected-hostname"/>
+<meta content="357a4441d707c1ea953912be6e542c3f6148977d595cf8cb8cd655f6e0be47c1" data-turbo-track="reload" http-equiv="x-pjax-version"/>
+<meta content="21a43568025709b66240454fc92d4f09335a96863f8ab1c46b4a07f6a5b67102" data-turbo-track="reload" http-equiv="x-pjax-csp-version"/>
+<meta content="8487fec39c8c06b815832ce80ebd89387f6b3bac9b5498b820bc97b9a51ed30a" data-turbo-track="reload" http-equiv="x-pjax-css-version"/>
+<meta content="08855dea5a4040e62befe4bd21ac7e5567c3990d78acd9f443553027d4a4de57" data-turbo-track="reload" http-equiv="x-pjax-js-version"/>
+<meta content="no-preview" data-turbo-transient="" name="turbo-cache-control"/>
+<meta content="no-cache" data-turbo-transient="" name="turbo-cache-control"/>
+<meta data-hydrostats="publish"/>
+<meta content="github.com/BigBrotherJu/bigbrotherju.github.io git https://github.com/BigBrotherJu/bigbrotherju.github.io.git" name="go-import"/>
+<meta content="47515692" name="octolytics-dimension-user_id"/><meta content="BigBrotherJu" name="octolytics-dimension-user_login"/><meta content="952181622" name="octolytics-dimension-repository_id"/><meta content="BigBrotherJu/bigbrotherju.github.io" name="octolytics-dimension-repository_nwo"/><meta content="true" name="octolytics-dimension-repository_public"/><meta content="false" name="octolytics-dimension-repository_is_fork"/><meta content="952181622" name="octolytics-dimension-repository_network_root_id"/><meta content="BigBrotherJu/bigbrotherju.github.io" name="octolytics-dimension-repository_network_root_nwo"/>
+<meta content="logged-out env-production page-responsive" name="turbo-body-classes"/>
+<meta content="false" name="disable-turbo"/>
+<meta content="https://api.github.com/_private/browser/stats" name="browser-stats-url"/>
+<meta content="https://api.github.com/_private/browser/errors" name="browser-errors-url"/>
+<meta content="0ed90c40c35983bb3059d7977655dedf1dd14e12" name="release"/>
+<meta content="full" name="ui-target"/>
+<link color="#000000" href="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" rel="mask-icon"/>
+<link class="js-site-favicon" href="https://github.githubassets.com/favicons/favicon.png" rel="alternate icon" type="image/png"/>
+<link class="js-site-favicon" data-base-href="https://github.githubassets.com/favicons/favicon" href="https://github.githubassets.com/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+<meta content="#1e2327" name="theme-color"/>
+<meta content="light dark" name="color-scheme"/>
+<link crossorigin="use-credentials" href="/manifest.json" rel="manifest"/>
+<link crossorigin="anonymous" href="https://github.githubassets.com/assets/14814.29aaeaafa90f007c6f61.module.css" rel="stylesheet" type="text/css"/><link crossorigin="anonymous" href="https://github.githubassets.com/assets/7275.8284bdfe1ee4804a58c1.module.css" rel="stylesheet" type="text/css"/><style data-styled="active" data-styled-version="5.3.11"></style><link crossorigin="anonymous" href="https://github.githubassets.com/assets/67216.753d458774a2f782559b.module.css" rel="stylesheet" type="text/css"/><style id="ms-consent-banner-main-styles">.w8hcgFksdo30C8w-bygqu{color:#000}.ydkKdaztSS0AeHWIeIHsQ a{color:#0067B8}.erL690_8JwUW-R4bJRcfl{background-color:#EBEBEB;border:none;color:#000}.erL690_8JwUW-R4bJRcfl:enabled:hover{color:#000;background-color:#DBDBDB;box-shadow:0px 4px 10px rgba(0,0,0,0.25);border:none}.erL690_8JwUW-R4bJRcfl:enabled:focus{background-color:#DBDBDB;box-shadow:0px 4px 10px rgba(0,0,0,0.25);border:2px solid #000}.erL690_8JwUW-R4bJRcfl:disabled{opacity:1;color:rgba(0,0,0,0.2);background-color:rgba(0,0,0,0.2);border:none}._1zNQOqxpBFSokeCLGi_hGr{border:none;background-color:#0067B8;color:#fff}._1zNQOqxpBFSokeCLGi_hGr:enabled:hover{color:#fff;background-color:#0067B8;box-shadow:0px 4px 10px rgba(0,0,0,0.25);border:none}._1zNQOqxpBFSokeCLGi_hGr:enabled:focus{background-color:#0067B8;box-shadow:0px 4px 10px rgba(0,0,0,0.25);border:2px solid #000}._1zNQOqxpBFSokeCLGi_hGr:disabled{opacity:1;color:rgba(0,0,0,0.2);background-color:rgba(0,120,215,0.2);border:none}._23tra1HsiiP6cT-Cka-ycB{position:relative;display:flex;z-index:9999;width:100%;background-color:#F2F2F2;justify-content:space-between;text-align:left}div[dir="rtl"]._23tra1HsiiP6cT-Cka-ycB{text-align:right}._1Upc2NjY8AlDn177YoVj0y{margin:0;padding-left:5%;padding-top:8px;padding-bottom:8px}div[dir="rtl"] ._1Upc2NjY8AlDn177YoVj0y{margin:0;padding:8px 5% 8px 0;float:none}._23tra1HsiiP6cT-Cka-ycB svg{fill:none;max-width:none;max-height:none}._1V_hlU-7jdtPiooHMu89BB{display:table-cell;padding:12px;width:24px;height:24px;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:24px;line-height:0}.f6QKJD7fhSbnJLarTL-W-{display:table-cell;vertical-align:middle;padding:0;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:13px;line-height:16px}.f6QKJD7fhSbnJLarTL-W- a{text-decoration:underline}._2j0fmugLb1FgYz6KPuB91w{display:inline-block;margin-left:5%;margin-right:5%;min-width:40%;min-width:calc((150px + 3 * 4px) * 2 + 150px);min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;align-self:center;position:relative}._1XuCi2WhiqeWRUVp3pnFG3{margin:4px;padding:5px;min-width:150px;min-height:36px;vertical-align:top;cursor:pointer;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px;text-align:center}._1XuCi2WhiqeWRUVp3pnFG3:focus{box-sizing:border-box}._1XuCi2WhiqeWRUVp3pnFG3:disabled{cursor:not-allowed}._2bvsb3ubApyZ0UGoQA9O9T{display:block;position:fixed;z-index:10000;top:0;left:0;width:100%;height:100%;background-color:rgba(255,255,255,0.6);overflow:auto;text-align:left}div[dir="rtl"]._2bvsb3ubApyZ0UGoQA9O9T{text-align:right}div[dir="rtl"] ._2bvsb3ubApyZ0UGoQA9O9T{left:auto;right:0}.AFsJE948muYyzCMktdzuk{position:relative;top:8%;margin-bottom:40px;margin-left:auto;margin-right:auto;box-sizing:border-box;width:640px;background-color:#fff;border:1px solid #0067B8}._3kWyBRbW_dgnMiEyx06Fu4{float:right;z-index:1;margin:2px;padding:12px;border:none;cursor:pointer;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:13px;line-height:13px;display:flex;align-items:center;text-align:center;color:#666;background-color:#fff}div[dir="rtl"] ._3kWyBRbW_dgnMiEyx06Fu4{margin:2px;padding:12px;float:left}.uCYvKvHXrhjNgflv1VqdD{position:static;margin-top:36px;margin-left:36px;margin-right:36px}._17pX1m9O_W--iZbDt3Ta5r{margin-top:0;margin-bottom:12px;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:600;font-size:20px;line-height:24px;text-transform:none}._1kBkHQ1V1wu3kl-YcLgUr6{height:446px;overflow:auto}._20_nXDf6uFs9Q6wxRXG-I-{margin-top:0;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px}._20_nXDf6uFs9Q6wxRXG-I- a{text-decoration:underline}dl._2a0NH_GDQEQe5Ynfo7suVH{margin-top:36px;margin-bottom:0;padding:0;list-style:none;text-transform:none}dt._3j_LCPv7fyXv3A8FIXVwZ4{margin-top:20px;float:none;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:600;font-size:18px;line-height:24px;list-style:none}.k-vxTGFbdq1aOZB2HHpjh{margin:0;padding:0;border:none}._2Bucyy75c_ogoU1g-liB5R{margin:0;padding:0;border-bottom:none;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:600;font-size:18px;line-height:24px;text-transform:none}._63gwfzV8dclrsl2cfd90r{display:inline-block;margin-top:0;margin-bottom:13px;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px}._1l8wM_4mRYGz3Iu7l3BZR7{display:block}._2UE03QS02aZGkslegN_F-i{display:inline-block;position:relative;left:5px;margin-bottom:13px;margin-right:34px;padding:3px}div[dir="rtl"] ._2UE03QS02aZGkslegN_F-i{margin:0 0 13px 34px;padding:3px;float:none}div[dir="rtl"] ._2UE03QS02aZGkslegN_F-i{left:auto;right:5px}._23tra1HsiiP6cT-Cka-ycB *::before,._2bvsb3ubApyZ0UGoQA9O9T *::before,._23tra1HsiiP6cT-Cka-ycB *::after,._2bvsb3ubApyZ0UGoQA9O9T *::after{box-sizing:inherit}._1HSFn0HzGo6w4ADApV8-c4{outline:2px solid rgba(0,0,0,0.8)}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2{display:inline-block;position:relative;margin-top:0;margin-left:0;margin-right:0;height:0;width:0;border-radius:0;cursor:pointer;outline:none;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;appearance:none}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2+label::before{display:block;position:absolute;top:5px;left:3px;height:19px;width:19px;content:"";border-radius:50%;border:1px solid #000;background-color:#fff}div[dir="rtl"] input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2+label::before{left:auto;right:3px}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:hover::before{border:1px solid #0067B8}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:hover::after{display:block;position:absolute;top:10px;left:8px;height:9px;width:9px;content:"";border-radius:50%;background-color:rgba(0,0,0,0.8)}div[dir="rtl"] input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:hover::after{left:auto;right:8px}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:focus::before{border:1px solid #0067B8}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:focus::after{display:block;position:absolute;top:10px;left:8px;height:9px;width:9px;content:"";border-radius:50%;background-color:#000}div[dir="rtl"] input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:not(:disabled)+label:focus::after{left:auto;right:8px}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:checked+label::after{display:block;position:absolute;top:10px;left:8px;height:9px;width:9px;content:"";border-radius:50%;background-color:#000}div[dir="rtl"] input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:checked+label::after{left:auto;right:8px}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:disabled+label{cursor:not-allowed}input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:disabled+label::before{border:1px solid rgba(0,0,0,0.2);background-color:rgba(0,0,0,0.2)}._3RJzeL3l9Rl_lAQEm6VwdX{display:block;position:static;float:right;margin-top:0;margin-bottom:0;margin-left:19px;margin-right:0;padding-top:0;padding-bottom:0;padding-left:8px;padding-right:0;width:80%;width:calc(100% - 19px);font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px;text-transform:none;cursor:pointer;box-sizing:border-box}div[dir="rtl"] ._3RJzeL3l9Rl_lAQEm6VwdX{margin:0 19px 0 0;padding:0 8px 0 0;float:left}.nohp3sIG12ZBhzcMnPala{margin-top:20px;margin-bottom:48px}._2uhaEsmeotZ3P-M0AXo2kF{padding:0;width:278px;height:36px;cursor:pointer;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px;text-align:center}._2uhaEsmeotZ3P-M0AXo2kF:focus{box-sizing:border-box}._2uhaEsmeotZ3P-M0AXo2kF:disabled{cursor:not-allowed}._3tOu1FJ59c_xz_PmI1lKV5{float:right;padding:0;width:278px;height:36px;cursor:pointer;font-family:Segoe UI, SegoeUI, Arial, sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:20px;text-align:center}._3tOu1FJ59c_xz_PmI1lKV5:focus{box-sizing:border-box}._3tOu1FJ59c_xz_PmI1lKV5:disabled{cursor:not-allowed}div[dir="rtl"] ._3tOu1FJ59c_xz_PmI1lKV5{margin:0;padding:0;float:left}@media only screen and (max-width: 768px){._2j0fmugLb1FgYz6KPuB91w,._1Upc2NjY8AlDn177YoVj0y{padding-top:8px;padding-bottom:12px;padding-left:3.75%;padding-right:3.75%;margin:0;width:92.5%}._23tra1HsiiP6cT-Cka-ycB{display:block}._1XuCi2WhiqeWRUVp3pnFG3{margin-bottom:8px;margin-left:0;margin-right:0;width:100%}._2bvsb3ubApyZ0UGoQA9O9T{overflow:hidden}.AFsJE948muYyzCMktdzuk{top:1.8%;width:93.33%;height:96.4%;overflow:hidden}.uCYvKvHXrhjNgflv1VqdD{margin-top:24px;margin-left:24px;margin-right:24px;height:100%}._1kBkHQ1V1wu3kl-YcLgUr6{height:62%;height:calc(100% - 188px);min-height:50%}._2uhaEsmeotZ3P-M0AXo2kF{width:100%}._3tOu1FJ59c_xz_PmI1lKV5{margin-bottom:12px;margin-left:0;width:100%}div[dir="rtl"] ._3tOu1FJ59c_xz_PmI1lKV5{margin:0 0 12px 0;padding:0;float:none}}@media only screen and (max-width: 768px) and (orientation: landscape), only screen and (max-height: 260px), only screen and (max-width: 340px){.AFsJE948muYyzCMktdzuk{overflow:auto}}@media only screen and (max-height: 260px), only screen and (max-width: 340px){._1XuCi2WhiqeWRUVp3pnFG3{min-width:0}._3kWyBRbW_dgnMiEyx06Fu4{padding:3%}.uCYvKvHXrhjNgflv1VqdD{margin-top:3%;margin-left:3%;margin-right:3%}._17pX1m9O_W--iZbDt3Ta5r{margin-bottom:3%}._1kBkHQ1V1wu3kl-YcLgUr6{height:calc(79% - 64px)}.nohp3sIG12ZBhzcMnPala{margin-top:5%;margin-bottom:10%}._3tOu1FJ59c_xz_PmI1lKV5{margin-bottom:3%}div[dir="rtl"] ._3tOu1FJ59c_xz_PmI1lKV5{margin:0 0 3% 0;padding:0;float:none}}
+</style><style id="ms-consent-banner-theme-styles" type="text/css">._23tra1HsiiP6cT-Cka-ycB {
+            background-color: #24292f !important;
+        }.w8hcgFksdo30C8w-bygqu {
+            color: #ffffff !important;
+        }.ydkKdaztSS0AeHWIeIHsQ a {
+            color: #d8b9ff !important;
+        }._2bvsb3ubApyZ0UGoQA9O9T {
+            background-color: rgba(23, 23, 23, 0.8) !important;
+        }.AFsJE948muYyzCMktdzuk {
+            background-color: #24292f !important;
+            border: 1px solid #d8b9ff !important;
+        }._3kWyBRbW_dgnMiEyx06Fu4 {
+            color: #d8b9ff !important;
+            background-color: #24292f !important;
+        }._1zNQOqxpBFSokeCLGi_hGr {
+            border: 1px solid #ffffff !important;
+            background-color: #ffffff !important;
+            color: #1f2328 !important;
+        }._1zNQOqxpBFSokeCLGi_hGr:enabled:hover {
+            color: #1f2328 !important;
+            background-color: #d8b9ff !important;
+            box-shadow: none !important;
+            border: 1px solid transparent !important;
+        }._1zNQOqxpBFSokeCLGi_hGr:enabled:focus {
+            background-color: #d8b9ff !important;
+            box-shadow: none !important;
+            border: 2px solid #ffffff !important;
+        }._1zNQOqxpBFSokeCLGi_hGr:disabled {
+            opacity: 0.5 !important;
+            color: #1f2328 !important;
+            background-color: #ffffff !important;
+            border: 1px solid transparent !important;
+        }.erL690_8JwUW-R4bJRcfl {
+            border: 1px solid #eaeef2 !important;
+            background-color: #32383f !important;
+            color: #ffffff !important;
+        }.erL690_8JwUW-R4bJRcfl:enabled:hover {
+            color: #ffffff !important;
+            background-color: #24292f !important;
+            box-shadow: none !important;
+            border: 1px solid #ffffff !important;
+        }.erL690_8JwUW-R4bJRcfl:enabled:focus {
+            background-color: #24292f !important;
+            box-shadow: none !important;
+            border: 2px solid #6e7781 !important;
+        }.erL690_8JwUW-R4bJRcfl:disabled {
+            opacity: 0.5 !important;
+            color: #ffffff !important;
+            background-color: #424a53 !important;
+            border: 1px solid #6e7781 !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label::before {
+            border: 1px solid #d8b9ff !important;
+            background-color: #24292f !important;
+        }._1HSFn0HzGo6w4ADApV8-c4 {
+            outline: 2px solid #ffffff !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:checked + label::after {
+            background-color: #d8b9ff !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label:hover::before {
+            border: 1px solid #ffffff !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label:hover::after {
+            background-color: #ffffff !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label:focus::before {
+            border: 1px solid #ffffff !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2 + label:focus::after {
+            background-color: #d8b9ff !important;
+        }input[type="radio"]._1dp8Vp5m3HwAqGx8qBmFV2:disabled + label::before {
+            border: 1px solid rgba(227, 227, 227, 0.2) !important;
+            background-color: rgba(227, 227, 227, 0.2) !important;
+        }</style></head>
+<body class="logged-out env-production page-responsive" style="overflow-wrap: break-word; --dialog-scrollgutter: 0px;"><div class="Box-sc-62in7e-0 lhfNqO js-snippet-clipboard-copy-unpositioned undefined" data-hpc="true" style="padding: 32px"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto" tabindex="-1">Syntax Highlighting of Code Blocks in Markdown</h1><a aria-label="Permalink: Syntax Highlighting of Code Blocks in Markdown" class="anchor" href="#syntax-highlighting-of-code-blocks-in-markdown" id="user-content-syntax-highlighting-of-code-blocks-in-markdown"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Markdown 文件中的代码块的 syntax highlighting 可能会根据 Markdown 文件所处的环境不一样而有不同的效果。Markdown 文件可能有以下环境。</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto" tabindex="-1">GitHub 上渲染的 Markdown</h2><a aria-label="Permalink: GitHub 上渲染的 Markdown" class="anchor" href="#github-上渲染的-markdown" id="user-content-github-上渲染的-markdown"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto" tabindex="-1">GitHub 原生支持的 Code Block 语言</h3><a aria-label="Permalink: GitHub 原生支持的 Code Block 语言" class="anchor" href="#github-原生支持的-code-block-语言" id="user-content-github-原生支持的-code-block-语言"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table data-catalyst=""><table tabindex="0">
+<thead>
+<tr>
+<th>Language</th>
+<th>Entry in languages.yml</th>
+<th>Info String</th>
+<th>Grammar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c</td>
+<td>C</td>
+<td><code>c</code></td>
+<td><a href="https://github.com/tree-sitter/tree-sitter-c">https://github.com/tree-sitter/tree-sitter-c</a></td>
+</tr>
+<tr>
+<td>kconfig</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>shell session</td>
+<td>ShellSession</td>
+<td><code>shellsession/.sh-session/sh-session/bash-session/console</code></td>
+<td><a href="https://github.com/atom/language-shellscript">https://github.com/atom/language-shellscript</a></td>
+</tr>
+<tr>
+<td>bash script</td>
+<td>Shell</td>
+<td><code>shell/{,.}sh/shell-script/ash/{,.}bash/dash/{,.}ksh/mksh/pdksh/{,.}zsh/rc/envrc/{,.}bats/{,.}cgi/{,.}command/{,.}fcgi/{,.}sh.in/{,.}tmux/{,.}tool/{,.}trigger/{,.}zsh-theme</code></td>
+<td><a href="https://github.com/atom/language-shellscript">https://github.com/atom/language-shellscript</a></td>
+</tr>
+<tr>
+<td>zsh script</td>
+<td>Shell</td>
+<td><code>shell/{,.}sh/shell-script/ash/{,.}bash/dash/{,.}ksh/mksh/pdksh/{,.}zsh/rc/envrc/{,.}bats/{,.}cgi/{,.}command/{,.}fcgi/{,.}sh.in/{,.}tmux/{,.}tool/{,.}trigger/{,.}zsh-theme</code></td>
+<td><a href="https://github.com/atom/language-shellscript">https://github.com/atom/language-shellscript</a></td>
+</tr>
+<tr>
+<td>javascript</td>
+<td>JavaScript</td>
+<td><code>{,.}javascript/{,.}js/node/{,.}_js/{,.}bones/{,.}cjs/{,.}es/{,.}es6/{,.}frag/{,.}gs/{,.}jake/{,.}jsb/{,.}jscad/{,.}jsfl/{,.}jslib/{,.}jsm/{,.}jspre/{,.}jss/{,.}jsx/{,.}mjs/{,.}njs/{,.}pac/{,.}sjs/{,.}ssjs/{,.}xsjs/{,.}xsjslib/chakra/d8/gjs/nodejs/qjs/rhino/v8/v8-shell</code></td>
+<td><a href="https://github.com/tree-sitter/tree-sitter-javascript">https://github.com/tree-sitter/tree-sitter-javascript</a></td>
+</tr>
+<tr>
+<td>json</td>
+<td>JSON</td>
+<td><code>{,.}json/{,.}JSON-tmLanguage/...</code></td>
+<td><a href="https://github.com/Nixinova/NovaGrammars">https://github.com/Nixinova/NovaGrammars</a></td>
+</tr>
+<tr>
+<td>jsonc</td>
+<td>JSON with Comments</td>
+<td><code>{,.}jsonc/...</code></td>
+<td><a href="https://github.com/DecimalTurn/vscode-jsonc-syntax-highlighting">https://github.com/DecimalTurn/vscode-jsonc-syntax-highlighting</a></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">注意区别 shell session 和 shell script。bash script 和 zsh script 在 <code>languages.yml</code> 中对应的 entry 都是 Shell，其他 shell script 比如 powershell fish 有自己的 entry。</p>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto" tabindex="-1">如何指定语言</h4><a aria-label="Permalink: 如何指定语言" class="anchor" href="#如何指定语言" id="user-content-如何指定语言"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<blockquote>
+<p dir="auto">For each language in <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml"><code>languages.yml</code></a>, you can use as specifiers:</p>
+<ol dir="auto">
+<li>the language name;</li>
+<li>any of the language <code>aliases</code>;</li>
+<li>any of the language <code>interpreters</code>;</li>
+<li>any of the file extensions, with or without a leading <code>.</code>.</li>
+</ol>
+<p dir="auto">Whitespace must be replaced by dashes, for example, <code>emacs-lisp</code> is one specifier for <code>Emacs Lisp</code>.</p>
+<p dir="auto">Languages with a <code>tm_scope: none</code> entry don't have a grammar defined and won't be highlighted on GitHub.</p>
+<p dir="auto">Source: <a aria-keyshortcuts="Alt+ArrowUp" class="issue-link js-issue-link" data-error-text="Failed to load title" data-hovercard-type="pull_request" data-hovercard-url="/github-linguist/linguist/pull/4271/hovercard" data-id="361027744" data-permission-text="Title is private" data-url="https://github.com/github-linguist/linguist/issues/4271" href="https://github.com/github-linguist/linguist/pull/4271">github-linguist/linguist#4271</a></p>
+</blockquote>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto" tabindex="-1">使用什么规则进行 tokenization</h4><a aria-label="Permalink: 使用什么规则进行 tokenization" class="anchor" href="#使用什么规则进行-tokenization" id="user-content-使用什么规则进行-tokenization"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">linguist 使用语言对应的 grammar 对 Markdown 文件中的 code block 进行 tokenization。</p>
+<p dir="auto">语言对应的 grammar 在 <a href="https://github.com/github-linguist/linguist/tree/main/vendor%E3%80%82">https://github.com/github-linguist/linguist/tree/main/vendor。</a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto" tabindex="-1">增加 Code Block 种类</h3><a aria-label="Permalink: 增加 Code Block 种类" class="anchor" href="#增加-code-block-种类" id="user-content-增加-code-block-种类"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">给 linguist 上游提 PR。</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto" tabindex="-1">VS Code 编辑器中渲染的 Markdown</h2><a aria-label="Permalink: VS Code 编辑器中渲染的 Markdown" class="anchor" href="#vs-code-编辑器中渲染的-markdown" id="user-content-vs-code-编辑器中渲染的-markdown"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">参考链接如下：</p>
+<p dir="auto"><a href="https://stackoverflow.com/q/68385897/14067245" rel="nofollow">https://stackoverflow.com/q/68385897/14067245</a></p>
+<p dir="auto"><a href="https://markdown-all-in-one.github.io/docs/guide/syntax-highlighting-for-fenced-code-blocks.html#in-editor" rel="nofollow">https://markdown-all-in-one.github.io/docs/guide/syntax-highlighting-for-fenced-code-blocks.html#in-editor</a></p>
+<p dir="auto"><a href="https://github.com/mjbvz/vscode-fenced-code-block-grammar-injection-example">https://github.com/mjbvz/vscode-fenced-code-block-grammar-injection-example</a></p>
+<p dir="auto">Markdown 插件 GitHub 仓库：<a href="https://github.com/microsoft/vscode/blob/main/extensions/markdown-basics%E3%80%82">https://github.com/microsoft/vscode/blob/main/extensions/markdown-basics。</a></p>
+<p dir="auto">Markdown 插件本地路径：<code>/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/extensions/markdown-basics</code>。</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto" tabindex="-1">Syntax Highlighting 原理</h3><a aria-label="Permalink: Syntax Highlighting 原理" class="anchor" href="#syntax-highlighting-原理" id="user-content-syntax-highlighting-原理"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Syntax Highlighting 分两步：tokenization 和 theming，具体见 <a href="https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide%E3%80%82" rel="nofollow">https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide。</a></p>
+<p dir="auto">Tokenization：VS Code 本身对所有代码文件使用 TextMate grammar 进行 tokenization，Markdown 文件也不例外。VS Code 提供 Markdown 基本支持的插件，定义了针对 Markdown 的 TextMate grammar，常见的 Markdown 结构都在其中进行了定义，具体见 <code>markdown-basics/syntaxes/markdown.tmLanguage.json</code>，节选如下：</p>
+<div class="highlight highlight-source-json notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-ent">"fenced_code_block_c"</span>: {
+    <span class="pl-ent">"begin"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>s*)(`{3,}|~{3,})<span class="pl-cce">\\</span>s*(?i:(c|h)((<span class="pl-cce">\\</span>s+|:|,|<span class="pl-cce">\\</span>{|<span class="pl-cce">\\</span>?)[^`]*)?$)<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"endCaptures"</span>: {
+        <span class="pl-ent">"3"</span>: {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>punctuation.definition.markdown<span class="pl-pds">"</span></span>
+        }
+    },
+    <span class="pl-ent">"end"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>2|<span class="pl-cce">\\</span>s{0,3})(<span class="pl-cce">\\</span>3)<span class="pl-cce">\\</span>s*$<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"patterns"</span>: [
+        {
+            <span class="pl-ent">"begin"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>s*)(.*)<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"patterns"</span>: [
+                {
+                    <span class="pl-ent">"include"</span>: <span class="pl-s"><span class="pl-pds">"</span>source.c<span class="pl-pds">"</span></span>
+                }
+            ],
+            <span class="pl-ent">"contentName"</span>: <span class="pl-s"><span class="pl-pds">"</span>meta.embedded.block.c<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"while"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(?!<span class="pl-cce">\\</span>s*([`~]{3,})<span class="pl-cce">\\</span>s*$)<span class="pl-pds">"</span></span>
+        }
+    ],
+    <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>markup.fenced_code.block.markdown<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"beginCaptures"</span>: {
+        <span class="pl-ent">"3"</span>: {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>punctuation.definition.markdown<span class="pl-pds">"</span></span>
+        },
+        <span class="pl-ent">"4"</span>: {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>fenced_code.block.language.markdown<span class="pl-pds">"</span></span>
+        },
+        <span class="pl-ent">"5"</span>: {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>fenced_code.block.language.attributes.markdown<span class="pl-pds">"</span></span>
+        }
+    }
+},</pre><div class="zeroclipboard-container">
+<clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" role="button" tabindex="0" value='"fenced_code_block_c": {
+    "begin": "(^|\\G)(\\s*)(`{3,}|~{3,})\\s*(?i:(c|h)((\\s+|:|,|\\{|\\?)[^`]*)?$)",
+    "endCaptures": {
+        "3": {
+            "name": "punctuation.definition.markdown"
+        }
+    },
+    "end": "(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$",
+    "patterns": [
+        {
+            "begin": "(^|\\G)(\\s*)(.*)",
+            "patterns": [
+                {
+                    "include": "source.c"
+                }
+            ],
+            "contentName": "meta.embedded.block.c",
+            "while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)"
+        }
+    ],
+    "name": "markup.fenced_code.block.markdown",
+    "beginCaptures": {
+        "3": {
+            "name": "punctuation.definition.markdown"
+        },
+        "4": {
+            "name": "fenced_code.block.language.markdown"
+        },
+        "5": {
+            "name": "fenced_code.block.language.attributes.markdown"
+        }
+    }
+},'>
+<svg aria-hidden="true" class="octicon octicon-copy js-clipboard-copy-icon" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+<svg aria-hidden="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+</clipboard-copy>
+</div></div>
+<p dir="auto">Theming：对一个代码文件进行 tokenization 以后，这个代码文件所有的 token 都会有对应的 scope。每个 theme 中都会定义一些 scope 到颜色的映射。比如：</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-kos">{</span>
+  <span class="pl-s">"scope"</span>: <span class="pl-s">"entity.name.function"</span><span class="pl-kos">,</span>
+  <span class="pl-s">"settings"</span>: <span class="pl-kos">{</span>
+    <span class="pl-c1">foreground</span>: <span class="pl-en">lightDark</span><span class="pl-kos">(</span><span class="pl-s1">scale</span><span class="pl-kos">.</span><span class="pl-c1">purple</span><span class="pl-kos">[</span><span class="pl-c1">5</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">scale</span><span class="pl-kos">.</span><span class="pl-c1">purple</span><span class="pl-kos">[</span><span class="pl-c1">2</span><span class="pl-kos">]</span><span class="pl-kos">)</span>
+  <span class="pl-kos">}</span>
+<span class="pl-kos">}</span><span class="pl-kos">,</span></pre><div class="zeroclipboard-container">
+<clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" role="button" tabindex="0" value='{
+  "scope": "entity.name.function",
+  "settings": {
+    foreground: lightDark(scale.purple[5], scale.purple[2])
+  }
+},'>
+<svg aria-hidden="true" class="octicon octicon-copy js-clipboard-copy-icon" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+<svg aria-hidden="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+</clipboard-copy>
+</div></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto" tabindex="-1">VS Code 原生支持的 Code Block</h3><a aria-label="Permalink: VS Code 原生支持的 Code Block" class="anchor" href="#vs-code-原生支持的-code-block" id="user-content-vs-code-原生支持的-code-block"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table data-catalyst=""><table tabindex="0">
+<thead>
+<tr>
+<th>Language</th>
+<th>Entry in markdown.tmLanguage.json</th>
+<th>Info String</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c</td>
+<td>fenced_code_block_c</td>
+<td><code>c/h</code></td>
+</tr>
+<tr>
+<td>kconfig</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>shell session</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>bash script</td>
+<td>fenced_code_block_shell</td>
+<td><code>shell/sh/bash/zsh/bashrc/bash_profile/bash_login/profile/bash_logout/.textmate_init/\\{\\.bash.+?\\}</code></td>
+</tr>
+<tr>
+<td>zsh script</td>
+<td>fenced_code_block_shell</td>
+<td><code>shell/sh/bash/zsh/bashrc/bash_profile/bash_login/profile/bash_logout/.textmate_init/\\{\\.bash.+?\\}</code></td>
+</tr>
+<tr>
+<td>javascript</td>
+<td>fenced_code_block_js</td>
+<td><code>js/jsx/javascript/es6/mjs/cjs/dataviewjs/\\{\\.js.+?\\}</code></td>
+</tr>
+<tr>
+<td>json</td>
+<td>fenced_code_block_json</td>
+<td><code>json/json5/sublime-settings/sublime-menu/sublime-keymap/sublime-mousemap/sublime-theme/sublime-build/sublime-project/sublime-completions</code></td>
+</tr>
+<tr>
+<td>jsonc</td>
+<td>fenced_code_block_jsonc</td>
+<td><code>jsonc</code></td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto">注意，VS Code 只支持对 shell script 进行高亮，不支持对 shell session 进行高亮。</p>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto" tabindex="-1">种类</h4><a aria-label="Permalink: 种类" class="anchor" href="#种类" id="user-content-种类"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">在 <code>/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/extensions/markdown-basics/syntaxes/markdown.tmLanguage.json</code> 其中搜索 <code>fenced_code_block</code>，可以得到 62 个结果，如下所示。如何指定语言需要去文件中查看。</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>abap
+basic
+bibtex
+c
+clojure
+coffee
+cpp
+csharp
+css
+dart
+diff
+dockerfile
+dosbatch
+elixir
+erlang
+fsharp
+git_commit
+git_rebase
+go
+groovy
+handlebars
+ignore
+ini
+java
+js
+js_regexp
+json
+jsonc
+jsonl
+julia
+latex
+less
+log
+lua
+makefile
+markdown
+objc
+perl
+perl6
+php
+powershell
+pug
+python
+r
+regexp_python
+restructuredtext
+ruby
+rust
+scala
+scss
+shell
+sql
+swift
+ts
+tsx
+twig
+unknown
+vs_net
+xml
+xsl
+yaml
+yang
+</code></pre><div class="zeroclipboard-container">
+<clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" role="button" tabindex="0" value="abap
+basic
+bibtex
+c
+clojure
+coffee
+cpp
+csharp
+css
+dart
+diff
+dockerfile
+dosbatch
+elixir
+erlang
+fsharp
+git_commit
+git_rebase
+go
+groovy
+handlebars
+ignore
+ini
+java
+js
+js_regexp
+json
+jsonc
+jsonl
+julia
+latex
+less
+log
+lua
+makefile
+markdown
+objc
+perl
+perl6
+php
+powershell
+pug
+python
+r
+regexp_python
+restructuredtext
+ruby
+rust
+scala
+scss
+shell
+sql
+swift
+ts
+tsx
+twig
+unknown
+vs_net
+xml
+xsl
+yaml
+yang">
+<svg aria-hidden="true" class="octicon octicon-copy js-clipboard-copy-icon" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+<svg aria-hidden="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+</clipboard-copy>
+</div></div>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto" tabindex="-1">如何支持：提供 Grammar</h4><a aria-label="Permalink: 如何支持：提供 Grammar" class="anchor" href="#如何支持提供-grammar" id="user-content-如何支持提供-grammar"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">我们在 TextMate grammar 中选择 shell code block 进行分析。其他的 code block 结构类似。</p>
+<p dir="auto"><code>begin</code> 匹配 code block 开头 <code>```shell</code>。<code>end</code> 匹配 code block 结尾 <code>```</code>。code block 开头结尾以及中间的所有内容会被分配 scope <code>name</code>，即 <code>markup.fenced_code.block.markdown</code>。</p>
+<p dir="auto"><code>beginCaptures</code> <code>endCaptures</code> 会给 code block 开头和结尾对应的字符分配各自的 scope。</p>
+<p dir="auto"><code>patterns</code> 匹配 code block 除去开头和结尾的中间内容。<code>begin</code> 对中间内容的每一行进行匹配，<code>while</code> 对中间内容的下一行进行匹配，只要没到 code block 结尾，一直进行匹配。分配 scope 使用的规则来自 <code>source.shell</code>。<code>source.shell</code> 在 <a href="https://github.com/microsoft/vscode/blob/main/extensions/shellscript/syntaxes/shell-unix-bash.tmLanguage.json">https://github.com/microsoft/vscode/blob/main/extensions/shellscript/syntaxes/shell-unix-bash.tmLanguage.json</a> 中定义。</p>
+<div class="highlight highlight-source-json notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-ent">"fenced_code_block_shell"</span>: {
+    <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>markup.fenced_code.block.markdown<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"begin"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>s*)(`{3,}|~{3,})<span class="pl-cce">\\</span>s*(?i:(shell|sh|bash|zsh|bashrc|bash_profile|bash_login|profile|bash_logout|.textmate_init|<span class="pl-cce">\\</span>{<span class="pl-cce">\\</span>.bash.+?<span class="pl-cce">\\</span>})((<span class="pl-cce">\\</span>s+|:|,|<span class="pl-cce">\\</span>{|<span class="pl-cce">\\</span>?)[^`]*)?$)<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"beginCaptures"</span>: {
+        <span class="pl-ent">"3"</span>: {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>punctuation.definition.markdown<span class="pl-pds">"</span></span>
+        },
+        <span class="pl-ent">"4"</span>: {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>fenced_code.block.language.markdown<span class="pl-pds">"</span></span>
+        },
+        <span class="pl-ent">"5"</span>: {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>fenced_code.block.language.attributes.markdown<span class="pl-pds">"</span></span>
+        }
+    },
+    <span class="pl-ent">"end"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>2|<span class="pl-cce">\\</span>s{0,3})(<span class="pl-cce">\\</span>3)<span class="pl-cce">\\</span>s*$<span class="pl-pds">"</span></span>,
+    <span class="pl-ent">"endCaptures"</span>: {
+        <span class="pl-ent">"3"</span>: {
+            <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>punctuation.definition.markdown<span class="pl-pds">"</span></span>
+        }
+    },
+    <span class="pl-ent">"patterns"</span>: [
+        {
+            <span class="pl-ent">"begin"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>s*)(.*)<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"while"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(?!<span class="pl-cce">\\</span>s*([`~]{3,})<span class="pl-cce">\\</span>s*$)<span class="pl-pds">"</span></span>,
+            <span class="pl-ent">"patterns"</span>: [
+                {
+                    <span class="pl-ent">"include"</span>: <span class="pl-s"><span class="pl-pds">"</span>source.shell<span class="pl-pds">"</span></span>
+                }
+            ],
+            <span class="pl-ent">"contentName"</span>: <span class="pl-s"><span class="pl-pds">"</span>meta.embedded.block.shellscript<span class="pl-pds">"</span></span>,
+        }
+    ],
+},</pre><div class="zeroclipboard-container">
+<clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" role="button" tabindex="0" value='"fenced_code_block_shell": {
+    "name": "markup.fenced_code.block.markdown",
+    "begin": "(^|\\G)(\\s*)(`{3,}|~{3,})\\s*(?i:(shell|sh|bash|zsh|bashrc|bash_profile|bash_login|profile|bash_logout|.textmate_init|\\{\\.bash.+?\\})((\\s+|:|,|\\{|\\?)[^`]*)?$)",
+    "beginCaptures": {
+        "3": {
+            "name": "punctuation.definition.markdown"
+        },
+        "4": {
+            "name": "fenced_code.block.language.markdown"
+        },
+        "5": {
+            "name": "fenced_code.block.language.attributes.markdown"
+        }
+    },
+    "end": "(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$",
+    "endCaptures": {
+        "3": {
+            "name": "punctuation.definition.markdown"
+        }
+    },
+    "patterns": [
+        {
+            "begin": "(^|\\G)(\\s*)(.*)",
+            "while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
+            "patterns": [
+                {
+                    "include": "source.shell"
+                }
+            ],
+            "contentName": "meta.embedded.block.shellscript",
+        }
+    ],
+},'>
+<svg aria-hidden="true" class="octicon octicon-copy js-clipboard-copy-icon" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+<svg aria-hidden="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+</clipboard-copy>
+</div></div>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto" tabindex="-1">如何支持：设置 Embedded Languages</h4><a aria-label="Permalink: 如何支持：设置 Embedded Languages" class="anchor" href="#如何支持设置-embedded-languages" id="user-content-如何支持设置-embedded-languages"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Markdown 文件中可能会包含很多其他语言的代码块。<a href="https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#embedded-languages" rel="nofollow">https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#embedded-languages</a> 中指出，如果我们要 VS Code 在编辑 Markdown 文件时对这些其他语言提供完善支持，比如 bracket matching、commenting、snippets。我们需要在 Markdown 插件 <code>package.json</code> 的 <code>contributes.grammars.embeddedLanguages</code> 中进行设置。</p>
+<p dir="auto">VS Code Markdown 插件的 <code>package.json</code> 相关部分如下。<code>source.js</code> <code>source.css</code> 主要处理直接在 Markdown 中使用 <code>&lt;style&gt;&lt;/style&gt;</code> <code>&lt;script&gt;&lt;/script&gt;</code> 的情况。<code>embeddedLanguages</code> 中的这些 key 都是 TextMate grammar 中定义的。比如 <code>meta.embedded.block.shellscript</code> 在 <code>"contentName": "meta.embedded.block.shellscript"</code> 中定义。</p>
+<p dir="auto">需要注意的是，如果只需要 syntax highlighting，不需要 bracket matching、commenting、snippets，<code>embeddedLanguages</code> 可以不用设置。上一小节 62 种语言就有一些没有设置 <code>embeddedLanguages</code>。</p>
+<div class="highlight highlight-source-json notranslate position-relative overflow-auto" dir="auto"><pre>    <span class="pl-ent">"grammars"</span>: [
+      {
+        <span class="pl-ent">"language"</span>: <span class="pl-s"><span class="pl-pds">"</span>markdown<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"scopeName"</span>: <span class="pl-s"><span class="pl-pds">"</span>text.html.markdown<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"path"</span>: <span class="pl-s"><span class="pl-pds">"</span>./syntaxes/markdown.tmLanguage.json<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"embeddedLanguages"</span>: {
+          <span class="pl-ent">"meta.embedded.block.html"</span>: <span class="pl-s"><span class="pl-pds">"</span>html<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"source.js"</span>: <span class="pl-s"><span class="pl-pds">"</span>javascript<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"source.css"</span>: <span class="pl-s"><span class="pl-pds">"</span>css<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.frontmatter"</span>: <span class="pl-s"><span class="pl-pds">"</span>yaml<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.css"</span>: <span class="pl-s"><span class="pl-pds">"</span>css<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.ini"</span>: <span class="pl-s"><span class="pl-pds">"</span>ini<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.java"</span>: <span class="pl-s"><span class="pl-pds">"</span>java<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.lua"</span>: <span class="pl-s"><span class="pl-pds">"</span>lua<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.makefile"</span>: <span class="pl-s"><span class="pl-pds">"</span>makefile<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.perl"</span>: <span class="pl-s"><span class="pl-pds">"</span>perl<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.r"</span>: <span class="pl-s"><span class="pl-pds">"</span>r<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.ruby"</span>: <span class="pl-s"><span class="pl-pds">"</span>ruby<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.php"</span>: <span class="pl-s"><span class="pl-pds">"</span>php<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.sql"</span>: <span class="pl-s"><span class="pl-pds">"</span>sql<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.vs_net"</span>: <span class="pl-s"><span class="pl-pds">"</span>vs_net<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.xml"</span>: <span class="pl-s"><span class="pl-pds">"</span>xml<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.xsl"</span>: <span class="pl-s"><span class="pl-pds">"</span>xsl<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.yaml"</span>: <span class="pl-s"><span class="pl-pds">"</span>yaml<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.dosbatch"</span>: <span class="pl-s"><span class="pl-pds">"</span>dosbatch<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.clojure"</span>: <span class="pl-s"><span class="pl-pds">"</span>clojure<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.coffee"</span>: <span class="pl-s"><span class="pl-pds">"</span>coffee<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.c"</span>: <span class="pl-s"><span class="pl-pds">"</span>c<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.cpp"</span>: <span class="pl-s"><span class="pl-pds">"</span>cpp<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.diff"</span>: <span class="pl-s"><span class="pl-pds">"</span>diff<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.dockerfile"</span>: <span class="pl-s"><span class="pl-pds">"</span>dockerfile<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.go"</span>: <span class="pl-s"><span class="pl-pds">"</span>go<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.groovy"</span>: <span class="pl-s"><span class="pl-pds">"</span>groovy<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.pug"</span>: <span class="pl-s"><span class="pl-pds">"</span>jade<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.ignore"</span>: <span class="pl-s"><span class="pl-pds">"</span>ignore<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.javascript"</span>: <span class="pl-s"><span class="pl-pds">"</span>javascript<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.json"</span>: <span class="pl-s"><span class="pl-pds">"</span>json<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.jsonc"</span>: <span class="pl-s"><span class="pl-pds">"</span>jsonc<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.jsonl"</span>: <span class="pl-s"><span class="pl-pds">"</span>jsonl<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.latex"</span>: <span class="pl-s"><span class="pl-pds">"</span>latex<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.less"</span>: <span class="pl-s"><span class="pl-pds">"</span>less<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.objc"</span>: <span class="pl-s"><span class="pl-pds">"</span>objc<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.scss"</span>: <span class="pl-s"><span class="pl-pds">"</span>scss<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.perl6"</span>: <span class="pl-s"><span class="pl-pds">"</span>perl6<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.powershell"</span>: <span class="pl-s"><span class="pl-pds">"</span>powershell<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.python"</span>: <span class="pl-s"><span class="pl-pds">"</span>python<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.restructuredtext"</span>: <span class="pl-s"><span class="pl-pds">"</span>restructuredtext<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.rust"</span>: <span class="pl-s"><span class="pl-pds">"</span>rust<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.scala"</span>: <span class="pl-s"><span class="pl-pds">"</span>scala<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.shellscript"</span>: <span class="pl-s"><span class="pl-pds">"</span>shellscript<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.typescript"</span>: <span class="pl-s"><span class="pl-pds">"</span>typescript<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.typescriptreact"</span>: <span class="pl-s"><span class="pl-pds">"</span>typescriptreact<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.csharp"</span>: <span class="pl-s"><span class="pl-pds">"</span>csharp<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"meta.embedded.block.fsharp"</span>: <span class="pl-s"><span class="pl-pds">"</span>fsharp<span class="pl-pds">"</span></span>
+        },</pre><div class="zeroclipboard-container">
+<clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" role="button" tabindex="0" value='    "grammars": [
+      {
+        "language": "markdown",
+        "scopeName": "text.html.markdown",
+        "path": "./syntaxes/markdown.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.html": "html",
+          "source.js": "javascript",
+          "source.css": "css",
+          "meta.embedded.block.frontmatter": "yaml",
+          "meta.embedded.block.css": "css",
+          "meta.embedded.block.ini": "ini",
+          "meta.embedded.block.java": "java",
+          "meta.embedded.block.lua": "lua",
+          "meta.embedded.block.makefile": "makefile",
+          "meta.embedded.block.perl": "perl",
+          "meta.embedded.block.r": "r",
+          "meta.embedded.block.ruby": "ruby",
+          "meta.embedded.block.php": "php",
+          "meta.embedded.block.sql": "sql",
+          "meta.embedded.block.vs_net": "vs_net",
+          "meta.embedded.block.xml": "xml",
+          "meta.embedded.block.xsl": "xsl",
+          "meta.embedded.block.yaml": "yaml",
+          "meta.embedded.block.dosbatch": "dosbatch",
+          "meta.embedded.block.clojure": "clojure",
+          "meta.embedded.block.coffee": "coffee",
+          "meta.embedded.block.c": "c",
+          "meta.embedded.block.cpp": "cpp",
+          "meta.embedded.block.diff": "diff",
+          "meta.embedded.block.dockerfile": "dockerfile",
+          "meta.embedded.block.go": "go",
+          "meta.embedded.block.groovy": "groovy",
+          "meta.embedded.block.pug": "jade",
+          "meta.embedded.block.ignore": "ignore",
+          "meta.embedded.block.javascript": "javascript",
+          "meta.embedded.block.json": "json",
+          "meta.embedded.block.jsonc": "jsonc",
+          "meta.embedded.block.jsonl": "jsonl",
+          "meta.embedded.block.latex": "latex",
+          "meta.embedded.block.less": "less",
+          "meta.embedded.block.objc": "objc",
+          "meta.embedded.block.scss": "scss",
+          "meta.embedded.block.perl6": "perl6",
+          "meta.embedded.block.powershell": "powershell",
+          "meta.embedded.block.python": "python",
+          "meta.embedded.block.restructuredtext": "restructuredtext",
+          "meta.embedded.block.rust": "rust",
+          "meta.embedded.block.scala": "scala",
+          "meta.embedded.block.shellscript": "shellscript",
+          "meta.embedded.block.typescript": "typescript",
+          "meta.embedded.block.typescriptreact": "typescriptreact",
+          "meta.embedded.block.csharp": "csharp",
+          "meta.embedded.block.fsharp": "fsharp"
+        },'>
+<svg aria-hidden="true" class="octicon octicon-copy js-clipboard-copy-icon" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+<svg aria-hidden="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+</clipboard-copy>
+</div></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto" tabindex="-1">增加 Code Block 种类</h3><a aria-label="Permalink: 增加 Code Block 种类" class="anchor" href="#增加-code-block-种类-1" id="user-content-增加-code-block-种类-1"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">参考 <a href="https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#injection-grammars" rel="nofollow">https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#injection-grammars</a> 和 <a href="https://github.com/mjbvz/vscode-fenced-code-block-grammar-injection-example%E3%80%82">https://github.com/mjbvz/vscode-fenced-code-block-grammar-injection-example。</a></p>
+<p dir="auto">如果我们要给 VS Code 编辑器中的 Markdown 文件增加 Code Block 语言支持，我们可以自己创建一个插件，用 injection 的方式添加支持。我们同样需要进行两步：提供语言的 Grammar，设置 Embedded Languages。</p>
+<p dir="auto">其中语言的 Grammar 可以由别的语言插件提供，也可以自己写。</p>
+<p dir="auto">对于 Embedded Languages，如果该语言没有插件支持，设置了也没有作用。</p>
+<div class="highlight highlight-source-json-comments notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c"><span class="pl-c">//</span> package.json</span>
+{
+  <span class="pl-ent">"contributes"</span>: {
+    <span class="pl-ent">"grammars"</span>: [
+      {
+        <span class="pl-ent">"path"</span>: <span class="pl-s"><span class="pl-pds">"</span>./syntaxes/injection.json<span class="pl-pds">"</span></span>,
+        <span class="pl-ent">"scopeName"</span>: <span class="pl-s"><span class="pl-pds">"</span>injection<span class="pl-pds">"</span></span>, <span class="pl-c"><span class="pl-c">//</span> 可以随便取</span>
+        <span class="pl-ent">"injectTo"</span>: [<span class="pl-s"><span class="pl-pds">"</span>text.html.markdown<span class="pl-pds">"</span></span>],
+        <span class="pl-ent">"embeddedLanguages"</span>: {
+          <span class="pl-ent">"meta.embedded.block.kconfig"</span>: <span class="pl-s"><span class="pl-pds">"</span>kconfig<span class="pl-pds">"</span></span>
+        }
+      }
+    ]
+  }
+}
+
+<span class="pl-c"><span class="pl-c">//</span> injection.json</span>
+
+{
+  <span class="pl-ent">"scopeName"</span>: <span class="pl-s"><span class="pl-pds">"</span>injection<span class="pl-pds">"</span></span>, <span class="pl-c"><span class="pl-c">//</span> 要和上面保持一致</span>
+  <span class="pl-ent">"injectionSelector"</span>: <span class="pl-s"><span class="pl-pds">"</span>L:text.html.markdown<span class="pl-pds">"</span></span>,
+  <span class="pl-ent">"patterns"</span>: [
+    {
+      <span class="pl-ent">"include"</span>: <span class="pl-s"><span class="pl-pds">"</span>#kconfig-code-block<span class="pl-pds">"</span></span>
+    }
+  ],
+  <span class="pl-ent">"repository"</span>: {
+    <span class="pl-ent">"kconfig-code-block"</span>: {
+      <span class="pl-ent">"begin"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>s*)(<span class="pl-cce">\\</span>`{3,}|~{3,})<span class="pl-cce">\\</span>s*(?i:(kconfig)(<span class="pl-cce">\\</span>s+[^`~]*)?$)<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>markup.fenced_code.block.markdown<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"end"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>2|<span class="pl-cce">\\</span>s{0,3})(<span class="pl-cce">\\</span>3)<span class="pl-cce">\\</span>s*$<span class="pl-pds">"</span></span>,
+      <span class="pl-ent">"beginCaptures"</span>: {
+        <span class="pl-ent">"3"</span>: {
+          <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>punctuation.definition.markdown<span class="pl-pds">"</span></span>
+        },
+        <span class="pl-ent">"4"</span>: {
+          <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>fenced_code.block.language.markdown<span class="pl-pds">"</span></span>
+        },
+        <span class="pl-ent">"5"</span>: {
+          <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>fenced_code.block.language.attributes.markdown<span class="pl-pds">"</span></span>
+        }
+      },
+      <span class="pl-ent">"endCaptures"</span>: {
+        <span class="pl-ent">"3"</span>: {
+          <span class="pl-ent">"name"</span>: <span class="pl-s"><span class="pl-pds">"</span>punctuation.definition.markdown<span class="pl-pds">"</span></span>
+        }
+      },
+      <span class="pl-ent">"patterns"</span>: [
+        {
+          <span class="pl-ent">"begin"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(<span class="pl-cce">\\</span>s*)(.*)<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"while"</span>: <span class="pl-s"><span class="pl-pds">"</span>(^|<span class="pl-cce">\\</span>G)(?!<span class="pl-cce">\\</span>s*([`~]{3,})<span class="pl-cce">\\</span>s*$)<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"contentName"</span>: <span class="pl-s"><span class="pl-pds">"</span>meta.embedded.block.kconfig<span class="pl-pds">"</span></span>,
+          <span class="pl-ent">"patterns"</span>: [
+            {
+              <span class="pl-ent">"include"</span>: <span class="pl-s"><span class="pl-pds">"</span>source.kconfig<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">//</span> 其他插件有提供的话直接 include，不然要自己写</span>
+            }
+          ]
+        }
+      ]
+    }
+  },
+}</pre><div class="zeroclipboard-container">
+<clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" role="button" tabindex="0" value='// package.json
+{
+  "contributes": {
+    "grammars": [
+      {
+        "path": "./syntaxes/injection.json",
+        "scopeName": "injection", // 可以随便取
+        "injectTo": ["text.html.markdown"],
+        "embeddedLanguages": {
+          "meta.embedded.block.kconfig": "kconfig"
+        }
+      }
+    ]
+  }
+}
+
+// injection.json
+
+{
+  "scopeName": "injection", // 要和上面保持一致
+  "injectionSelector": "L:text.html.markdown",
+  "patterns": [
+    {
+      "include": "#kconfig-code-block"
+    }
+  ],
+  "repository": {
+    "kconfig-code-block": {
+      "begin": "(^|\\G)(\\s*)(\\`{3,}|~{3,})\\s*(?i:(kconfig)(\\s+[^`~]*)?$)",
+      "name": "markup.fenced_code.block.markdown",
+      "end": "(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$",
+      "beginCaptures": {
+        "3": {
+          "name": "punctuation.definition.markdown"
+        },
+        "4": {
+          "name": "fenced_code.block.language.markdown"
+        },
+        "5": {
+          "name": "fenced_code.block.language.attributes.markdown"
+        }
+      },
+      "endCaptures": {
+        "3": {
+          "name": "punctuation.definition.markdown"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "(^|\\G)(\\s*)(.*)",
+          "while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
+          "contentName": "meta.embedded.block.kconfig",
+          "patterns": [
+            {
+              "include": "source.kconfig" // 其他插件有提供的话直接 include，不然要自己写
+            }
+          ]
+        }
+      ]
+    }
+  },
+}'>
+<svg aria-hidden="true" class="octicon octicon-copy js-clipboard-copy-icon" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+<svg aria-hidden="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none" data-view-component="true" height="16" version="1.1" viewbox="0 0 16 16" width="16">
+<path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+</clipboard-copy>
+</div></div>
+</article></div>
+
+<div aria-atomic="true" aria-live="polite" class="sr-only mt-n1" id="js-global-screen-reader-notice"></div>
+<div aria-atomic="true" aria-live="assertive" class="sr-only mt-n1" id="js-global-screen-reader-notice-assertive"></div>
+<div aria-live="assertive" class="sr-only mt-n1" data-testid="screenReaderAnnouncement" id="screenReaderAnnouncementDiv" role="alert"> </div></body></html>
