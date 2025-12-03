@@ -9,7 +9,7 @@ from copy import deepcopy
 def fetch_with_retry(page: Page, url: str, max_retries=2, retry_delay=1):
     for attempt in range(max_retries + 1):
         try:
-            page.goto(url, wait_until='networkidle', timeout=30000)
+            page.goto(url, wait_until='networkidle', timeout=10000)
             content = page.content()
             return content
         except Exception as e:
@@ -45,9 +45,11 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
         # with open(orig_path, 'w', encoding="utf-8") as f:
         #     f.write(str(soup))
 
-        # ================== 删除所有 rel="icon" 和 rel="manifest" 的链接 ======
+        # ================== 删除所有 rel="icon", "manifest", "mask-icon" 的链接
         for link in soup.find_all('link', rel=lambda x:
-                                  x and x.lower() in ['icon', 'manifest']):
+                                  x and x.lower() in ['icon',
+                                                      'manifest',
+                                                      'mask-icon']):
             print(f"Deleting link with rel='{link.get('rel')}': {link}")
             link.decompose()
 
