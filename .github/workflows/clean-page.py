@@ -27,6 +27,7 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
     try:
         repo = 'bigbrotherju.github.io'
         user_repo = 'BigBrotherJu/' + repo
+        is_readme = url.lower().endswith('readme.md')
 
         start_time = time.monotonic()
         html_content = fetch_with_retry(page, url)
@@ -76,6 +77,9 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
                     # 如果没有 / 则取开头到 .md 的部分
                     new_title = original_title[:md_index]
 
+                if is_readme:
+                    new_title = 'BigBrotherJu'
+
                 title_element.string = new_title
                 print(f"title 更新: [ {original_title} ] → [ {new_title} ]")
             else:
@@ -97,7 +101,7 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
 
             parent_clone['style'] = 'padding: 32px'
 
-            is_readme = url.lower().endswith('readme.md')
+
             if is_readme:
                 print("正在处理 README 中的链接：")
                 md_links = parent_clone.find_all('a',
