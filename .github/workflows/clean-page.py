@@ -14,11 +14,13 @@ def fetch_with_retry(page: Page, url: str, max_retries=2, retry_delay=1):
             return content
         except Exception as e:
             if attempt < max_retries:
-                print(f"Attempt {attempt + 1} failed: {str(e)}. "
+                print(f"fetch_with_retry: Attempt {attempt + 1} failed: "
+                      f"{str(e)}. "
                       f"Retrying in {retry_delay}s...")
                 time.sleep(retry_delay)
             else:
-                raise Exception(f"Failed after {max_retries + 1} attempts: "
+                raise Exception(f"fetch_with_retry: "
+                                f"Failed after {max_retries + 1} attempts: "
                                 f"{str(e)}")
 
 def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
@@ -162,13 +164,15 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
             f.write(str(soup))
 
     except Exception as e:
-        print(f"Error processing {url}: {str(e)}")
+        print(f"clean_html: "
+              f"Error processing {url}: {str(e)}")
         raise e  # Raise exception to allow retry in main
 
 def main():
     parser = argparse.ArgumentParser(description='Clean HTML pages from GitHub')
     parser.add_argument('url_output_pairs', nargs='+',
-                        help='Pairs of GitHub URL and output file path, e.g., url1 output1 url2 output2 ...')
+                        help='Pairs of GitHub URL and output file path, '
+                              'e.g., url1 output1 url2 output2 ...')
     parser.add_argument('--orig', action='store_true',
                         help='Save original HTML file')
 
@@ -180,13 +184,15 @@ def main():
 
     url_outputs = []
     for i in range(0, len(args.url_output_pairs), 2):
-        url_outputs.append((args.url_output_pairs[i], args.url_output_pairs[i+1]))
+        url_outputs.append((args.url_output_pairs[i],
+                            args.url_output_pairs[i+1]))
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
         for url, output_path in url_outputs:
+            print("="*80)
             print(f"\nProcessing {url} -> {output_path}")
 
             max_retries = 2
@@ -196,14 +202,16 @@ def main():
                     break  # Success, move to next URL
                 except Exception as e:
                     if attempt < max_retries:
-                        print(f"Attempt {attempt + 1} failed: {str(e)}. Recreating page and retrying...")
+                        print(f"main: Attempt {attempt + 1} failed: {str(e)}. "
+                              f"Recreating page and retrying...")
                         try:
                             page.close()
                         except:
                             pass
                         page = browser.new_page()
                     else:
-                        print(f"Failed to process {url} after {max_retries + 1} attempts: {str(e)}")
+                        print(f"main: Failed to process {url} after "
+                              f"{max_retries + 1} attempts: {str(e)}")
                         sys.exit(1)
 
         browser.close()
