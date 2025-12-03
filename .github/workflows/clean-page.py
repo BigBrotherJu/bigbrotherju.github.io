@@ -1,24 +1,17 @@
 import sys
 import time
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, Page
 import os
 import argparse
 from bs4 import BeautifulSoup
 from copy import deepcopy
 
-def fetch_with_retry(url, max_retries=2, retry_delay=3):
+def fetch_with_retry(page: Page, url: str, max_retries=2, retry_delay=1):
     for attempt in range(max_retries + 1):
         try:
-            with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                context = browser.new_context()
-                page = context.new_page()
-
-                page.goto(url, wait_until='networkidle', timeout=30000)
-
-                content = page.content()
-                browser.close()
-                return content
+            page.goto(url, wait_until='networkidle', timeout=30000)
+            content = page.content()
+            return content
         except Exception as e:
             if attempt < max_retries:
                 print(f"Attempt {attempt + 1} failed: {str(e)}. "
@@ -28,11 +21,11 @@ def fetch_with_retry(url, max_retries=2, retry_delay=3):
                 raise Exception(f"Failed after {max_retries + 1} attempts: "
                                 f"{str(e)}")
 
-def clean_html(url, output_path, save_orig):
+def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
     try:
         repo = 'bigbrotherju.github.io'
         user_repo = 'BigBrotherJu/' + repo
-        html_content = fetch_with_retry(url)
+        html_content = fetch_with_retry(page, url)
 
         if save_orig:
             base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
@@ -76,11 +69,11 @@ def clean_html(url, output_path, save_orig):
         article_element = soup.find('article')
 
         if article_element is not None:
-            print("发现 article 元素:")
-            print(f"标签类型: {article_element.name}")
-            print(f"ID 属性: {article_element.get('id', '无')}")
-            print(f"class 属性: {article_element.get('class', '无')}")
-            print(f"子元素数量: {len(article_element.find_all())}")
+            print("正在处理 article 元素:")
+            print(f"    标签类型: {article_element.name}")
+            print(f"    ID 属性: {article_element.get('id', '无')}")
+            print(f"    class 属性: {article_element.get('class', '无')}")
+            print(f"    子元素数量: {len(article_element.find_all())}")
             parent_clone = deepcopy(article_element.parent)
 
             parent_clone['style'] = 'padding: 32px'
@@ -147,8 +140,8 @@ def clean_html(url, output_path, save_orig):
 
         for idx, element in enumerate(turbo_elements, 1):
             print(f"正在删除第 {idx} 个 turbo-body 元素:")
-            print(f"标签名: {element.name}")
-            print(f"全部属性: {dict(element.attrs)}")
+            print(f"    标签名: {element.name}")
+            print(f"    全部属性: {dict(element.attrs)}")
 
             # element['hidden'] = None
             # print("已添加 hidden 属性")
@@ -170,15 +163,50 @@ def clean_html(url, output_path, save_orig):
 
     except Exception as e:
         print(f"Error processing {url}: {str(e)}")
-        sys.exit(1)  # 非零退出码触发 Actions 重试
+        raise e  # Raise exception to allow retry in main
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Clean HTML page from GitHub')
-    parser.add_argument('url', help='GitHub URL to process')
-    parser.add_argument('output_path', help='Output file path')
+def main():
+    parser = argparse.ArgumentParser(description='Clean HTML pages from GitHub')
+    parser.add_argument('url_output_pairs', nargs='+',
+                        help='Pairs of GitHub URL and output file path, e.g., url1 output1 url2 output2 ...')
     parser.add_argument('--orig', action='store_true',
                         help='Save original HTML file')
 
     args = parser.parse_args()
 
-    clean_html(args.url, args.output_path, args.orig)
+    if len(args.url_output_pairs) % 2 != 0:
+        print("Error: URLs and output paths must be provided in pairs.")
+        sys.exit(1)
+
+    url_outputs = []
+    for i in range(0, len(args.url_output_pairs), 2):
+        url_outputs.append((args.url_output_pairs[i], args.url_output_pairs[i+1]))
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+
+        for url, output_path in url_outputs:
+            print(f"\nProcessing {url} -> {output_path}")
+
+            max_retries = 2
+            for attempt in range(max_retries + 1):
+                try:
+                    clean_html(page, url, output_path, args.orig)
+                    break  # Success, move to next URL
+                except Exception as e:
+                    if attempt < max_retries:
+                        print(f"Attempt {attempt + 1} failed: {str(e)}. Recreating page and retrying...")
+                        try:
+                            page.close()
+                        except:
+                            pass
+                        page = browser.new_page()
+                    else:
+                        print(f"Failed to process {url} after {max_retries + 1} attempts: {str(e)}")
+                        sys.exit(1)
+
+        browser.close()
+
+if __name__ == "__main__":
+    main()

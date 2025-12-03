@@ -18,6 +18,7 @@ jobs:
       - name: Get every Markdown files
         id: get_files
         run: |
+          # 列出所有 md 文件，删除开头的 ./，# 开头的文件不处理
           FILES=$(find . -type f -name "*.md" ! -name "#*" | sed 's|^\./||')
 
           echo "files<<EOF" >> $GITHUB_OUTPUT  # 使用 EOF 块处理多行
@@ -44,32 +45,22 @@ jobs:
 
           IFS=$'\n' files=(${{ steps.get_files.outputs.files }})
 
+          ARGS=()
           for file in "${files[@]}"; do
-            echo -e "\n-------------------------Processing $file-------------------------------------\n"
             GITHUB_URL="https://github.com/${{ github.repository }}/blob/main/$file"
 
-            file_base=$(basename "$file" .md)
-
-            if [ "$file_base" = "README" ]; then
+            if [ "$file" = "README.md" ]; then
               OUTPUT_PATH="output/index.html"
             else
               OUTPUT_PATH="output/${file%.md}.html"
-              mkdir -p $(dirname $OUTPUT_PATH)
+              mkdir -p "$(dirname "$OUTPUT_PATH")"
             fi
 
-            # 带重试机制的调用 (最多3次尝试)
-            max_retries=2
-            attempt=0
-            until python .github/workflows/clean-page.py "$GITHUB_URL" "$OUTPUT_PATH"; do
-              attempt=$((attempt + 1))
-              if [ $attempt -gt $max_retries ]; then
-                echo "Failed after $max_retries attempts"
-                exit 1
-              fi
-              echo "Retrying ($attempt/$max_retries)..."
-              sleep 5
-            done
+            ARGS+=("$GITHUB_URL" "$OUTPUT_PATH")
           done
+
+          echo "Processing ${#files[@]} files in batch..."
+          python .github/workflows/clean-page.py "${ARGS[@]}"
 
       - name: Copy archive folder
         run: |
