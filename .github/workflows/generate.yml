@@ -62,8 +62,9 @@ jobs:
           echo "Processing ${#files[@]} files in batch..."
           python .github/workflows/clean-page.py "${ARGS[@]}"
 
-      - name: Copy archive folder
+      - name: Copy archive assets and favicon
         run: |
+          # Copy archive folder
           if [ -d "archive" ]; then
             echo "Copying archive folder to output/archive"
             mkdir -p output/archive
@@ -72,14 +73,21 @@ jobs:
             echo "Archive folder not found, skipping"
           fi
 
-      - name: Copy assets folder
-        run: |
+          # Copy assets folder (including favicons)
           if [ -d "assets" ]; then
             echo "Copying assets folder to output/assets"
             mkdir -p output/assets
             cp -r assets/* output/assets/
           else
             echo "Assets folder not found, skipping"
+          fi
+
+          # Copy favicon.ico from root
+          if [ -f "favicon.ico" ]; then
+            echo "Copying favicon.ico to output/favicon.ico"
+            cp favicon.ico output/favicon.ico
+          else
+            echo "favicon.ico not found in root, skipping"
           fi
 
       - name: Deploy to branch
