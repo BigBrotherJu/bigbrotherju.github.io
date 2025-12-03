@@ -31,7 +31,7 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
         start_time = time.monotonic()
         html_content = fetch_with_retry(page, url)
         end_time = time.monotonic()
-        print(f"Fetched in {end_time - start_time:.2f} seconds")
+        print(f"Fetched in {end_time - start_time:.2f} seconds\n")
 
         if save_orig:
             base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
@@ -45,10 +45,16 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
         # with open(orig_path, 'w', encoding="utf-8") as f:
         #     f.write(str(soup))
 
-        # ================== 删除所有 rel="icon" 的链接 ==================
-        for link in soup.find_all('link', rel="icon"):
-            print(f"正在删除 icon link: {link}\n")
+        # ================== 删除所有 rel="icon" 和 rel="manifest" 的链接 ======
+        for link in soup.find_all('link', rel=lambda x:
+                                  x and x.lower() in ['icon', 'manifest']):
+            print(f"Deleting link with rel='{link.get('rel')}': {link}")
             link.decompose()
+
+        # ================== 删除 <meta name="apple-itunes-app"> 标签 =========
+        for meta in soup.find_all('meta', attrs={'name': 'apple-itunes-app'}):
+            print(f"Deleting meta tag with name='apple-itunes-app': {meta}\n")
+            meta.decompose()
 
         # ================== 处理 title 元素 ==================
         title_element = soup.find('title')
