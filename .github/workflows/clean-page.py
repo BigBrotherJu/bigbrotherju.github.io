@@ -45,6 +45,11 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
         # with open(orig_path, 'w', encoding="utf-8") as f:
         #     f.write(str(soup))
 
+        # ================== 删除所有 rel="icon" 的链接 ==================
+        for link in soup.find_all('link', rel="icon"):
+            print(f"正在删除 icon link: {link}\n")
+            link.decompose()
+
         # ================== 处理 title 元素 ==================
         title_element = soup.find('title')
         if title_element:
@@ -106,27 +111,27 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
             else:
                 print("正在处理非 README 页面的链接和图片链接：")
 
+                search_prefix = f"/{user_repo}/raw/main/"
+
                 # 处理所有 <a> 标签
                 target_links = parent_clone.find_all('a',
-                    href=lambda x: x and user_repo in x)
+                    href=lambda x: x and x.startswith(search_prefix))
                 print(f"找到 {len(target_links)} 个需要处理的链接")
                 for link in target_links:
                     original_href = link['href']
-                    if original_href.startswith('/'):
-                        new_href = f"https://github.com{original_href}"
-                        link['href'] = new_href
-                        print(f"链接更新: {original_href} → {new_href}")
+                    new_href = original_href[len(search_prefix)-1:] # Keep the /
+                    link['href'] = new_href
+                    print(f"链接更新: {original_href} → {new_href}")
 
                 # 处理所有 <img> 标签
                 target_images = parent_clone.find_all('img',
-                    src=lambda x: x and user_repo in x)
+                    src=lambda x: x and x.startswith(search_prefix))
                 print(f"找到 {len(target_images)} 个需要处理的图片")
                 for img in target_images:
                     original_src = img['src']
-                    if original_src.startswith('/'):
-                        new_src = f"https://github.com{original_src}"
-                        img['src'] = new_src
-                        print(f"图片更新: {original_src} → {new_src}")
+                    new_src = original_src[len(search_prefix)-1:] # Keep the /
+                    img['src'] = new_src
+                    print(f"图片更新: {original_src} → {new_src}")
 
             print()
 
