@@ -27,7 +27,11 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
     try:
         repo = 'bigbrotherju.github.io'
         user_repo = 'BigBrotherJu/' + repo
+
+        start_time = time.monotonic()
         html_content = fetch_with_retry(page, url)
+        end_time = time.monotonic()
+        print(f"Fetched in {end_time - start_time:.2f} seconds")
 
         if save_orig:
             base_path = os.path.splitext(output_path)[0]  # 去掉 .html 后缀
@@ -192,8 +196,8 @@ def main():
         page = browser.new_page()
 
         for url, output_path in url_outputs:
-            print("="*80)
-            print(f"\nProcessing {url} -> {output_path}")
+            print("="*100)
+            print(f"Processing {url} -> {output_path}")
 
             max_retries = 2
             for attempt in range(max_retries + 1):
