@@ -145,7 +145,7 @@ def main():
 
         print("\nWARNING: README.md and posts/ directory are out of sync.")
 
-        sys.stdout.write("Discrepancies found. Press 'y' to continue anyway, "
+        sys.stdout.write("Discrepancies found. Press 'y' or Enter to continue anyway, "
                          "any other key to abort: ")
         sys.stdout.flush()
 
@@ -156,7 +156,7 @@ def main():
             print(f"\n[!] Error reading input: {e}. Aborting.")
             sys.exit(1)
 
-        if user_input == 'y':
+        if user_input in ['y', '\r', '\n']:
             print("User chose to continue despite discrepancies.\n")
             sys.exit(0)
         else:

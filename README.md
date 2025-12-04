@@ -9,7 +9,6 @@ Placeholder
 - RISC-V
   - [RISC-V Board](posts/2023-10-08-riscv-board.md)
   - [RISC-V Trap](posts/2024-04-22-riscv-trap.md)
-  - [RISC-V Virtual Memory](posts/2024-04-29-riscv-vm.md)
   - [RISC-V Code Model](posts/2024-06-13-riscv-code-model.md)
   - [Convention in RISC-V Assembly Programming](posts/2025-07-29-assembly-convention.md)
   - [Misaligned Access in RISC-V](posts/2025-06-24-riscv-misaligned-access.md)
@@ -21,7 +20,6 @@ Placeholder
       - [Introduction](posts/2025-09-08-object-intro.md)
       - [ELF Header](posts/2025-09-08-object-elf-header.md)
   - [Relocation](posts/2024-09-16-relocation.md)
-  - [从 C 代码到可执行文件的过程](posts/2025-09-03-c-to-exe.md)
   - [二进制相关工具](posts/2025-09-03-binary-tool.md)
 - Linux Kernel
   - [Submitting Linux Patch](posts/2025-02-04-linux-patch.md)
@@ -40,6 +38,7 @@ Placeholder
   - [Number Systems](posts/2023-08-13-number-systems.md)
   - [Digital Abstraction](posts/2023-09-06-digital-abstraction.md)
   - [Cross-Compile perf for RISC-V](posts/2025-07-01-perf-cross-compile.md)
+  - [SwiftUI Evaluation and Rendering](posts/2025-10-20-swiftui.md)
 - 其他 2
   - [PDF Tools for TOC](posts/2024-06-17-pdf-tool.md)
   - [Syntax Highlighting of Code Blocks in Markdown](posts/2025-08-31-markdown-syntax-hl.md)
