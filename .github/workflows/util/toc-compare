@@ -1,20 +1,22 @@
 import re
 import os
 import sys
+import tty
+import termios
 
 def extract_links_from_readme(readme_path):
-    links = []
+    links = {}
     try:
         with open(readme_path, 'r', encoding='utf-8') as f:
             content = f.read()
-            # Regex to find links like (posts/filename.md) or [text](posts/filename.md)
-            # We focus on the path part: posts/....md
-            matches = re.findall(r'posts/([^)]+\.md)', content)
-            links = [m.strip() for m in matches]
+            # Regex to find [Link Text](posts/filename.md)
+            matches = re.findall(r'\[([^\]]+)\]\(posts/([^)]+\.md)\)', content)
+            for text, filename in matches:
+                links[filename.strip()] = text.strip()
     except FileNotFoundError:
         print(f"Error: {readme_path} not found.")
         sys.exit(1)
-    return sorted(links)
+    return links
 
 def list_posts_files(posts_dir):
     files = []
@@ -27,6 +29,40 @@ def list_posts_files(posts_dir):
         sys.exit(1)
     return sorted(files)
 
+def get_md_title(filepath):
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            if not lines:
+                return None
+
+            # Check format 1: "# Title" at first line
+            if lines[0].startswith('# '):
+                return lines[0][2:].strip()
+
+            # Check format 2: "title: Title" at second line (YAML front matter)
+            if len(lines) >= 2 and lines[1].startswith('title: '):
+                return lines[1][7:].strip()
+
+    except Exception as e:
+        print(f"Error reading {filepath}: {e}")
+        return None
+    return None
+
+def getch_tty():
+    """Reads a single character from /dev/tty without waiting for newline."""
+    fd = os.open("/dev/tty", os.O_RDONLY)
+    try:
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(fd)
+            ch = os.read(fd, 1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    finally:
+        os.close(fd)
+    return ch.decode('utf-8')
+
 def main():
     # Define paths relative to the script or project root
     # Assuming script is run from project root or paths are absolute
@@ -36,25 +72,28 @@ def main():
     if not os.path.exists(readme_path):
         # Try getting path relative to this script location if run directly
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        # Go up 3 levels: .github/workflows/util -> .github/workflows -> .github -> root
-        project_root = os.path.dirname(os.path.dirname(os.path.dirname(script_dir)))
+        # Go up 3 levels: .github/workflows/util -> .github/workflows ->
+        # .github -> root
+        project_root = os.path.dirname(
+            os.path.dirname(os.path.dirname(script_dir)))
         readme_path = os.path.join(project_root, 'README.md')
         posts_dir = os.path.join(project_root, 'posts')
 
     print(f"Reading from: {readme_path}")
     print(f"Scanning dir: {posts_dir}\n")
 
-    readme_links = extract_links_from_readme(readme_path)
+    readme_links_dict = extract_links_from_readme(readme_path)
+    readme_files = sorted(readme_links_dict.keys())
     post_files = list_posts_files(posts_dir)
 
-    print(f"Links in README ({len(readme_links)}):")
-    for l in readme_links: print(f"  {l}")
+    print(f"Links in README ({len(readme_files)}):")
+    # for l in readme_files: print(f"  {l}")
 
     print(f"\nFiles in posts/ ({len(post_files)}):")
-    for f in post_files: print(f"  {f}")
+    # for f in post_files: print(f"  {f}")
 
-    # Comparison
-    set_readme = set(readme_links)
+    # Comparison of File Existence
+    set_readme = set(readme_files)
     set_posts = set(post_files)
 
     in_readme_not_in_posts = list(set_readme - set_posts)
@@ -63,6 +102,32 @@ def main():
     print("\n" + "="*40)
     print("COMPARISON RESULT")
     print("="*40)
+
+    # 1. Check Title Mismatches
+    print("Checking titles...")
+    title_mismatch_found = False
+    for filename in readme_files:
+        if filename in set_posts:
+            full_path = os.path.join(posts_dir, filename)
+            actual_title = get_md_title(full_path)
+            readme_title = readme_links_dict[filename]
+
+            if actual_title is None:
+                print(f"[!] FAILURE: Could not determine title for {filename}")
+                title_mismatch_found = True
+            elif actual_title != readme_title:
+                print(f"[!] FAILURE: Title mismatch for {filename}")
+                print(f"  README Link: '{readme_title}'")
+                print(f"  Actual File: '{actual_title}'")
+                title_mismatch_found = True
+
+    if title_mismatch_found:
+        print("\nTitle check failed: Mismatches found. "
+              "Fix them before proceeding.")
+        sys.exit(1)
+    else:
+        print("Title check passed.\n")
+
 
     if not in_readme_not_in_posts and not in_posts_not_in_readme:
         print("SUCCESS: Lists match perfectly!")
@@ -79,12 +144,23 @@ def main():
                 print(f"  - {f}")
 
         print("\nWARNING: README.md and posts/ directory are out of sync.")
-        user_input = input("Discrepancies found. Do you want to push anyway? (y/N) ").strip().lower()
+
+        sys.stdout.write("Discrepancies found. Press 'y' to continue anyway, "
+                         "any other key to abort: ")
+        sys.stdout.flush()
+
+        try:
+            user_input = getch_tty().lower()
+            print(user_input) # Echo the character so user sees what they typed
+        except Exception as e:
+            print(f"\n[!] Error reading input: {e}. Aborting.")
+            sys.exit(1)
+
         if user_input == 'y':
-            print("User chose to push despite discrepancies.")
+            print("User chose to continue despite discrepancies.\n")
             sys.exit(0)
         else:
-            print("Push aborted by user due to discrepancies.")
+            print("Operation aborted by user due to discrepancies.\n")
             sys.exit(1)
 
 if __name__ == "__main__":

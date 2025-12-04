@@ -34,12 +34,12 @@ Placeholder
   - [Display GDB Registers Nicely](posts/2024-05-05-gdb-register.md)
   - [QEMU 使用技巧](posts/2024-05-21-qemu.md)
   - [Setup Clangd](posts/2024-05-20-clangd.md)
-  - [Pacman 常用指令](posts/2025-09-09-pacman.md)
+  - [pacman 常用命令](posts/2025-09-09-pacman.md)
 - 其他 1
   - [C Standards](posts/2023-06-14-c-standards.md)
   - [Number Systems](posts/2023-08-13-number-systems.md)
   - [Digital Abstraction](posts/2023-09-06-digital-abstraction.md)
   - [Cross-Compile perf for RISC-V](posts/2025-07-01-perf-cross-compile.md)
 - 其他 2
-  - [PDF Tool for TOC](posts/2024-06-17-pdf-tool.md)
+  - [PDF Tools for TOC](posts/2024-06-17-pdf-tool.md)
   - [Syntax Highlighting of Code Blocks in Markdown](posts/2025-08-31-markdown-syntax-hl.md)
