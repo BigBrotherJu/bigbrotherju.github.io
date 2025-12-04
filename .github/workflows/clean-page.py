@@ -123,25 +123,28 @@ def clean_html(page: Page, url: str, output_path: str, save_orig: bool):
             else:
                 print("正在处理非 README 页面的链接和图片链接：")
 
-                search_prefix = f"/{user_repo}/raw/main/"
+                a_search_prefix = f"/{user_repo}/blob/main/"
+                src_search_prefix = f"/{user_repo}/raw/main/"
 
                 # 处理所有 <a> 标签
                 target_links = parent_clone.find_all('a',
-                    href=lambda x: x and x.startswith(search_prefix))
+                    href=lambda x: x and x.startswith(a_search_prefix))
                 print(f"找到 {len(target_links)} 个需要处理的链接")
                 for link in target_links:
                     original_href = link['href']
-                    new_href = original_href[len(search_prefix)-1:] # Keep the /
+                    # Keep the /
+                    new_href = original_href[len(a_search_prefix)-1:]
                     link['href'] = new_href
                     print(f"链接更新: {original_href} → {new_href}")
 
                 # 处理所有 <img> 标签
                 target_images = parent_clone.find_all('img',
-                    src=lambda x: x and x.startswith(search_prefix))
+                    src=lambda x: x and x.startswith(src_search_prefix))
                 print(f"找到 {len(target_images)} 个需要处理的图片")
                 for img in target_images:
                     original_src = img['src']
-                    new_src = original_src[len(search_prefix)-1:] # Keep the /
+                    # Keep the /
+                    new_src = original_src[len(src_search_prefix)-1:]
                     img['src'] = new_src
                     print(f"图片更新: {original_src} → {new_src}")
 

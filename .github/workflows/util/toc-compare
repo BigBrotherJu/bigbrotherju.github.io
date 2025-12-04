@@ -1,0 +1,91 @@
+import re
+import os
+import sys
+
+def extract_links_from_readme(readme_path):
+    links = []
+    try:
+        with open(readme_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            # Regex to find links like (posts/filename.md) or [text](posts/filename.md)
+            # We focus on the path part: posts/....md
+            matches = re.findall(r'posts/([^)]+\.md)', content)
+            links = [m.strip() for m in matches]
+    except FileNotFoundError:
+        print(f"Error: {readme_path} not found.")
+        sys.exit(1)
+    return sorted(links)
+
+def list_posts_files(posts_dir):
+    files = []
+    try:
+        for f in os.listdir(posts_dir):
+            if f.endswith('.md'):
+                files.append(f)
+    except FileNotFoundError:
+        print(f"Error: {posts_dir} directory not found.")
+        sys.exit(1)
+    return sorted(files)
+
+def main():
+    # Define paths relative to the script or project root
+    # Assuming script is run from project root or paths are absolute
+    readme_path = 'README.md'
+    posts_dir = 'posts'
+
+    if not os.path.exists(readme_path):
+        # Try getting path relative to this script location if run directly
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        # Go up 3 levels: .github/workflows/util -> .github/workflows -> .github -> root
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(script_dir)))
+        readme_path = os.path.join(project_root, 'README.md')
+        posts_dir = os.path.join(project_root, 'posts')
+
+    print(f"Reading from: {readme_path}")
+    print(f"Scanning dir: {posts_dir}\n")
+
+    readme_links = extract_links_from_readme(readme_path)
+    post_files = list_posts_files(posts_dir)
+
+    print(f"Links in README ({len(readme_links)}):")
+    for l in readme_links: print(f"  {l}")
+
+    print(f"\nFiles in posts/ ({len(post_files)}):")
+    for f in post_files: print(f"  {f}")
+
+    # Comparison
+    set_readme = set(readme_links)
+    set_posts = set(post_files)
+
+    in_readme_not_in_posts = list(set_readme - set_posts)
+    in_posts_not_in_readme = list(set_posts - set_readme)
+
+    print("\n" + "="*40)
+    print("COMPARISON RESULT")
+    print("="*40)
+
+    if not in_readme_not_in_posts and not in_posts_not_in_readme:
+        print("SUCCESS: Lists match perfectly!")
+        sys.exit(0)
+    else:
+        if in_readme_not_in_posts:
+            print("\n[!] Linked in README but file missing in posts/:")
+            for f in sorted(in_readme_not_in_posts):
+                print(f"  - {f}")
+
+        if in_posts_not_in_readme:
+            print("\n[!] File exists in posts/ but NOT linked in README:")
+            for f in sorted(in_posts_not_in_readme):
+                print(f"  - {f}")
+
+        print("\nWARNING: README.md and posts/ directory are out of sync.")
+        user_input = input("Discrepancies found. Do you want to push anyway? (y/N) ").strip().lower()
+        if user_input == 'y':
+            print("User chose to push despite discrepancies.")
+            sys.exit(0)
+        else:
+            print("Push aborted by user due to discrepancies.")
+            sys.exit(1)
+
+if __name__ == "__main__":
+    main()
